@@ -1,0 +1,32 @@
+---
+import CommonContainer from '@/components/Common/CommonContainer.astro';
+import CommonContent from '@/components/Common/CommonContent.astro';
+import CommonSection from '@/components/Common/CommonSection.astro';
+const { name } = Astro.props;
+---
+
+<CommonSection>
+  <CommonContainer>
+    <CommonContent column="2/3" tb="1/3">
+      <div class="title">
+        <h2>{name}</h2>
+      </div>
+    </CommonContent>
+    <CommonContent column="3/5" tb="3/6">
+      <div class="box">
+        <slot />
+      </div>
+    </CommonContent>
+  </CommonContainer>
+</CommonSection>
+
+<style lang="scss">
+  .title {
+    margin-bottom: 0.5lh;
+  }
+
+  .box {
+    padding: 1em;
+    background-color: var(--color-gray-900);
+  }
+</style>

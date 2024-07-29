@@ -1,0 +1,29 @@
+{
+  "path-autocomplete.pathMappings": {
+    "@": "${folder}/src",
+    "@components": "${folder}/src/components",
+    "@layout": "${folder}/src/layout",
+    "@scss": "${folder}/src/styles"
+  },
+  "scss.validate": false,
+  "[scss]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    }
+  },
+  "[astro]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    }
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "stylelint.configFile": "./.stylelintrc.json",
+  "stylelint.validate": ["css", "scss", "astro", "svelte"],
+  "[astro][scss][svelte]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    }
+  }
+}

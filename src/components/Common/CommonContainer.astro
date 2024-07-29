@@ -1,0 +1,17 @@
+<div class="common-container">
+  <slot />
+</div>
+
+<style lang="scss">
+  :root {
+    --grid-column-count: 5;
+  }
+
+  .common-container {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-column-count), 1fr);
+    column-gap: var(--space-gap);
+    padding-inline: var(--space-inline);
+    container: common-container / inline-size;
+  }
+</style>

@@ -1,0 +1,30 @@
+:root {
+  --color-white: #fff;
+  --color-gray-900: #f0f0f0;
+  --color-gray-700: #ccc;
+  --color-gray-500: #aaa;
+  --color-gray-400: #555;
+  --color-gray-300: #333;
+  --color-black: #000;
+
+  --color-orange: orangered;
+  --color-orange-dark: hsl(16deg 100% 20%);
+  --color-red-500: #fdd;
+  --color-red-300: #f99;
+  --color-red-100: #f66;
+  --color-blue-300: #eef;
+
+  // sample
+  --color-primary: var(--color-orange);
+  --color-primary-dark: var(--color-orange-dark);
+  --color-ok: var(--color-blue-300);
+  --color-error: var(--color-red-500);
+
+  // common
+  --color-text: var(--color-black);
+  --color-background: var(--color-white);
+  --color-border: var(--color-gray-500);
+
+  --color-text-light: var(--color-white);
+  --color-background-dark: var(--color-gray-300);
+}

@@ -1,0 +1,40 @@
+---
+import CommonFooter from './CommonFooter.astro';
+import CommonHeader from './CommonHeader.astro';
+import CommonMain from './CommonMain.astro';
+---
+
+<div class="common-layout">
+  <div class="common-layout_header">
+    <CommonHeader />
+  </div>
+  <main class="common-layout_main">
+    <CommonMain>
+      <slot />
+    </CommonMain>
+  </main>
+  <div class="common-layout_footer">
+    <CommonFooter />
+  </div>
+</div>
+
+<style lang="scss">
+  @use '@/styles/_develop/+' as *;
+
+  .common-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .common-layout_header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: var(--z-header);
+  }
+
+  .common-layout_main {
+    flex: 1;
+  }
+</style>

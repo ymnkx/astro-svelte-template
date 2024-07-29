@@ -1,0 +1,6 @@
+// base
+@use "_base/reset.scss";
+@use "_base/base.scss";
+
+// project settings
+@use "_design/+.scss" as design;

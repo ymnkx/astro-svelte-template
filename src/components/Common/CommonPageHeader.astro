@@ -1,0 +1,21 @@
+---
+import CommonContainer from './CommonContainer.astro';
+import CommonContent from './CommonContent.astro';
+
+const { title, description } = Astro.props;
+---
+
+<div class="common-pageHeader">
+  <CommonContainer>
+    <CommonContent>
+      <h1>{title}</h1>
+      <p>{description}</p>
+    </CommonContent>
+  </CommonContainer>
+</div>
+
+<style>
+  .common-pageHeader {
+    padding-block: 5vw 0;
+  }
+</style>
