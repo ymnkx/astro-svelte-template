@@ -16,7 +16,8 @@
     "svgsprite": "node 'scripts/svgSprite.js'",
     "preinstall": "node scripts/initialSetting.js",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "style-dictionary": "style-dictionary build --config ./sd.config.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^3.1.2",
@@ -61,6 +62,7 @@
     "prettier-plugin-svelte": "^3.2.5",
     "sass": "^1.77.6",
     "storybook": "^8.2.6",
+    "style-dictionary": "^4.0.1",
     "stylelint": "^16.6.1",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recess-order": "^5.0.1",
