@@ -7,24 +7,15 @@
   --color-gray-300: #333;
   --color-black: #000;
 
-  --color-orange: orangered;
-  --color-orange-dark: hsl(16deg 100% 20%);
-  --color-red-500: #fdd;
-  --color-red-300: #f99;
-  --color-red-100: #f66;
-  --color-blue-300: #eef;
+  --color-orange: hsl(16deg 100% 50%);
 
   // sample
   --color-primary: var(--color-orange);
-  --color-primary-dark: var(--color-orange-dark);
-  --color-ok: var(--color-blue-300);
-  --color-error: var(--color-red-500);
 
   // common
   --color-text: var(--color-black);
-  --color-background: var(--color-white);
-  --color-border: var(--color-gray-500);
-
   --color-text-light: var(--color-white);
+  --color-background: var(--color-white);
   --color-background-dark: var(--color-gray-300);
+  --color-border: var(--color-gray-500);
 }
