@@ -1,0 +1,42 @@
+---
+import BaseFooter from './BaseFooter.astro';
+import BaseHeader from './BaseHeader.astro';
+---
+
+<div class="common-layout">
+  <div class="common-layout_header">
+    <BaseHeader />
+  </div>
+  <main class="common-layout_main">
+    <slot />
+  </main>
+  <div class="common-layout_footer">
+    <BaseFooter />
+  </div>
+</div>
+
+<style lang="scss">
+  @use '@/styles/_develop/+' as *;
+
+  .common-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .common-layout_header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-header);
+    width: 100%;
+  }
+
+  .common-layout_main {
+    flex: 1;
+  }
+
+  .common-layout_footer {
+    padding-block-start: 7.5vw;
+  }
+</style>

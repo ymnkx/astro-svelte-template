@@ -1,7 +1,7 @@
 ---
 import '@/styles/base.scss';
-import Head from './head.astro';
-import CommonLayout from '@/components/Common/CommonLayout.astro';
+import BaseHead from '@/layouts/Base/BaseHead.astro';
+import BaseLayout from '@/layouts/Base/BaseLayout.astro';
 type Props = {
   title: string;
   description: string;
@@ -11,11 +11,11 @@ const { title, description } = Astro.props;
 
 <html lang="ja">
   <head>
-    <Head title={title} description={description} />
+    <BaseHead title={title} description={description} />
   </head>
   <body>
-    <CommonLayout>
+    <BaseLayout>
       <slot />
-    </CommonLayout>
+    </BaseLayout>
   </body>
 </html>

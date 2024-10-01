@@ -1,0 +1,30 @@
+---
+const { title, description, category } = Astro.props;
+---
+
+<div class="common-pageHeader">
+  {title && <h1 class="common-pageHeader_title">{title}</h1>}
+  {category && <p class="common-pageHeader_title">{category}</p>}
+  {description && <p class="common-pageHeader_description">{description}</p>}
+</div>
+
+<style lang="scss">
+  @use '@/styles/_develop/+' as *;
+
+  .common-pageHeader {
+    min-height: rem(124);
+    padding-block: 5vw 0;
+    padding-block-start: 3lh;
+    padding-inline: var(--space-inline);
+  }
+
+  .common-pageHeader_title {
+    font-size: var(--typo-size-700);
+    font-weight: var(--typo-weight-bold);
+    line-height: var(--typo-lh-xs);
+  }
+
+  .common-pageHeader_description {
+    margin-top: 0.5lh;
+  }
+</style>

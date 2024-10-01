@@ -1,0 +1,112 @@
+---
+import SvelteBinding from '@/components/Svelte/SvelteBinding.svelte';
+import SvelteBindingCheckbox from '@/components/Svelte/SvelteBindingCheckbox.svelte';
+import SvelteBindingRange from '@/components/Svelte/SvelteBindingRange.svelte';
+import SvelteEach from '@/components/Svelte/SvelteEach.svelte';
+import SvelteEvent from '@/components/Svelte/SvelteEvent.svelte';
+import SvelteLifeCycle from '@/components/Svelte/SvelteLifeCycle.svelte';
+import SvelteLogic from '@/components/Svelte/SvelteLogic.svelte';
+import SvelteMotion from '@/components/Svelte/SvelteMotion.svelte';
+import SveltePointMove from '@/components/Svelte/SveltePointMove.svelte';
+import SvelteProps from '@/components/Svelte/SvelteProps.svelte';
+import SvelteSimplest from '@/components/Svelte/SvelteSimplest.svelte';
+import SvelteSlot from '@/components/Svelte/SvelteSlot.svelte';
+import SvelteStore from '@/components/Svelte/SvelteStore.svelte';
+import SvelteTransition from '@/components/Svelte/SvelteTransition.svelte';
+import SvelteUpdateArray from '@/components/Svelte/SvelteUpdateArray.svelte';
+---
+
+<div class="svelte-samples">
+  <ul class="svelte-samples_grid">
+    <li data-label="Simplest">
+      <SvelteSimplest />
+    </li>
+    <li data-label="Props">
+      <SvelteProps textValue="PROPS" htmlValue="<b>HTML</b> props" />
+    </li>
+    <li data-label="Slot">
+      <SvelteSlot>This is Slot contents.</SvelteSlot>
+    </li>
+    <li data-label="Binding">
+      <SvelteBinding client:load />
+    </li>
+    <li data-label="Binding Range">
+      <SvelteBindingRange client:load />
+    </li>
+    <li data-label="Binding Checkbox">
+      <SvelteBindingCheckbox client:load />
+    </li>
+    <li data-label="Event Base">
+      <SvelteEvent client:load />
+    </li>
+    <li data-label="Event Point Move">
+      <SveltePointMove client:load />
+    </li>
+    <li data-label="Update Array">
+      <SvelteUpdateArray client:load />
+    </li>
+    <li data-label="Logic">
+      <SvelteLogic client:load />
+    </li>
+    <li data-label="Transition">
+      <SvelteTransition client:load />
+    </li>
+    <li data-label="Each">
+      <SvelteEach client:load />
+    </li>
+    <li data-label="Life Cycle">
+      <SvelteLifeCycle client:load />
+    </li>
+    <li data-label="Store">
+      <SvelteStore client:load />
+    </li>
+    <li data-label="Motion">
+      <SvelteMotion client:load />
+    </li>
+  </ul>
+</div>
+
+<style>
+  @use '@/styles/_develop/+' as *;
+
+  .svelte-samples {
+    padding-block-start: 3lh;
+    padding-inline: var(--space-inline);
+  }
+
+  .svelte-samples_grid {
+    --this-min: 25em;
+
+    display: grid;
+    border-color: var(--color-border);
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+
+    @supports (width: min(var(--this-min), 100%)) {
+      & {
+        grid-template-columns: repeat(auto-fit, minmax(min(var(--this-min), 100%), 1fr));
+      }
+    }
+
+    & > li {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1/1;
+      padding: 1rem;
+      border-color: var(--color-border);
+      border-style: solid;
+      border-width: 0 1px 1px 0;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        padding-inline: calc((1lh - 1em) * 0.5);
+        font-size: var(--typo-size-70);
+        content: attr(data-label);
+      }
+    }
+  }
+</style>

@@ -1,0 +1,30 @@
+{
+  "color": {
+    "gray": {
+      "0": {
+        "attributes": {
+          "category": "color"
+        },
+        "value": "#000000"
+      },
+      "10": {
+        "attributes": {
+          "category": "color"
+        },
+        "value": "#1a1a1a"
+      },
+      "50": {
+        "attributes": {
+          "category": "color"
+        },
+        "value": "#cccccc"
+      },
+      "100": {
+        "attributes": {
+          "category": "color"
+        },
+        "value": "#ffffff"
+      }
+    }
+  }
+}

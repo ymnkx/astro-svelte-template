@@ -30,14 +30,15 @@ Inside of your Astro project, you'll see the following folders and files:
 
 ## Commands
 
-| Command              | Action                                                         |
-| :------------------- | :------------------------------------------------------------- |
-| `npm install`        | インストール                                                   |
-| `npm run dev`        | 開発スタート（サーバーは `localhost:3000`）                    |
-| `npm run build`      | `./dist/` にビルド                                             |
-| `npm run preview`    | ビルドしたデータをプレビュー                                   |
-| `npm run file:build` | ファイル納品用のデータを `./build/` に生成（ファイル一覧つき） |
-| `npm run svgsprite`  | svgスプライトを生成（詳しくはIcon管理を参照）                  |
+| Command                    | Action                                                          |
+| :------------------------- | :-------------------------------------------------------------- |
+| `npm install`              | インストール                                                    |
+| `npm run dev`              | 開発スタート（サーバーは `localhost:3000`）                     |
+| `npm run build`            | `./dist/` にビルド                                              |
+| `npm run preview`          | ビルドしたデータをプレビュー                                    |
+| `npm run file:build`       | ファイル納品用のデータを `./build/` に生成（ファイル一覧つき）  |
+| `npm run svgsprite`        | svgスプライトを生成（詳しくはIcon管理を参照）                   |
+| `npm run style-dictionary` | デザイントークンファイルから `_variables.scss` ファイルを生成　 |
 
 ## Icon管理
 

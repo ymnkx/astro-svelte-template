@@ -1,0 +1,75 @@
+<div class="sample-banner">
+  <div class="sample-banner_inner">
+    <ul class="sample-banner_list">
+      {
+        [...Array(3)].map(() => (
+          <li>
+            <a href="#" class="sample-banner_link" title="sample">
+              <span>BANNER</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style lang="scss">
+  @use '@/styles/_develop/+' as *;
+
+  .sample-banner {
+    padding-block-start: var(--space-block);
+    padding-inline: var(--space-inline);
+  }
+
+  .sample-banner_inner {
+    max-width: var(--width-max-lg);
+    margin-inline: auto;
+  }
+
+  .sample-banner_list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+
+    @include min-screen(md) {
+      flex-direction: row;
+    }
+
+    & > li {
+      flex: 1;
+    }
+  }
+
+  .sample-banner_link {
+    --color-start: rgb(203 241 88);
+    --color-end: rgb(65 118 240);
+    --color-rotate: 90deg;
+
+    display: block;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 3/1;
+    font-size: var(--typo-size-700);
+    text-decoration: none;
+    background-image: linear-gradient(var(--color-rotate), var(--color-start) 0%, var(--color-end) 100%);
+    border-radius: var(--radius-small);
+
+    li:nth-child(1) > & {
+      background-image: linear-gradient(var(--color-rotate), var(--color-start) 0%, var(--color-end) 300%);
+    }
+
+    li:nth-child(2) > & {
+      background-image: linear-gradient(var(--color-rotate), var(--color-start) -100%, var(--color-end) 200%);
+    }
+
+    li:nth-child(3) > & {
+      background-image: linear-gradient(var(--color-rotate), var(--color-start) -200%, var(--color-end) 100%);
+    }
+
+    & > span {
+      mix-blend-mode: overlay;
+    }
+  }
+</style>

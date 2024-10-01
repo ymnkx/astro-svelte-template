@@ -1,0 +1,41 @@
+## Design Tokens
+
+Design Tokens とは、デザインシステムで使用する色や文字、余白、動きなどの情報のことです。
+
+### 参考
+
+- [Adobe](https://spectrum.adobe.com/page/design-tokens/)
+- [SmartHR](https://smarthr.design/products/design-tokens/)
+- [Material Design](https://m3.material.io/foundations/design-tokens/how-to-read-tokens)
+
+### 分類
+
+さまざまな前例を元に、以下の分類を採用します。
+
+| 名前            | 説明                                                                                                                                                                     | 例                                                            |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
+| Primitive token | • 使用してる値を全て登録する。<br/>• バリエーションは数字（0、10、50、100）                                                                                              | • color-gray-10<br/>• typo-size-30                            |
+| Alias token     | • 別名。概念。必要に応じて設定する。<br/>• （デフォルト設定を含めるか検討中）                                                                                            | • color-primary<br/>• color-warning<br/>• (typo-size-default) |
+| Semantic token  | • 要素に対する体系的な設定。<br/>• 各BlockやComponentの要素に設定する。<br/>• 使用する値はPrimitive TokenかAlias Tokenを呼ぶ。<br/>• バリエーションは文字（sm、md、lg…） | • color-background-low<br/>• typo-label-size-sm               |
+
+### ステータス
+
+現状、デザイントークンは直接scssファイルで管理しており、jsonファイルでの管理および、Figmaからの書き出しの導入は検討している段階です。
+
+### 説明（目標）
+
+Design Tokens はJSONファイルで管理し、CSS（SCSS）で使用できる形式に変換します。
+直接CSSで管理することもできるのですが、Figmaとの連携を想定した構成です（現行バージョンのFigmaでは、まだテキスト系のVariables設定ができないため、完全な連携はできないですが）。
+
+変換には Style Dictonary というツールを使用します。Design Tokens は、CSSのカスタムプロパティに変換されます。
+
+変換は command で実行します。
+
+```bash
+npm run style-dictionary
+```
+
+| 名前                   | パス                                 |
+| ---------------------- | ------------------------------------ |
+| Design Tokens ファイル | `/tokens/***.json`                   |
+| 書き出した設定ファイル | `/src/styles/_token/_variables.scss` |

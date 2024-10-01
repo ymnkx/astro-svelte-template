@@ -1,0 +1,23 @@
+---
+const { column = '1 / -1', tb } = Astro.props;
+---
+
+<div class="common-content">
+  <slot />
+</div>
+
+<style lang="scss" define:vars={{ column, tb }}>
+  @use '@/styles/_develop/+' as *;
+
+  .common-content {
+    grid-column: 1/-1;
+
+    @include min-screen(md) {
+      grid-column: var(--tb, var(--column));
+    }
+
+    @include min-screen(lg) {
+      grid-column: var(--column);
+    }
+  }
+</style>

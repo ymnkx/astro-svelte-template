@@ -1,0 +1,36 @@
+<div class="sample-statement">
+  <p class="sample-statement_main">This is Statement Block.</p>
+  <p class="sample-statement_sub">
+    ステートメントとは、企業やサービス、ブランドなどの方向性や理念を説明するための文章。そこそこ長くなることが多い。ポエムっぽい場合は改行位置に注意が必要になる。完全にコントロールしたい場合はSVG画像を使用すると良い。レスポンシブデザインで大事なのは最適な妥協点を見つけること。
+  </p>
+  <p class="sample-statement_sub">
+    もっと行間を広げて真ん中揃えにしたりするのをよく見かけるが、仮の文章なので左寄せにしておく。ステートメントでは難しいかもしれないが、文章の1行の幅は文字数で指定すると良い。長い文字の歴史の中で、欧文フォントの場合は1行に45〜75文字が読みやすいと分かった。和文フォントだと24〜40文字くらいが妥当。あくまで目安だが、この値を参考にしつつルールを考えると良い。今回は30文字（30em）を指定した。
+  </p>
+</div>
+
+<style lang="scss">
+  @use '@/styles/_develop/+' as *;
+
+  .sample-statement {
+    display: flex;
+    flex-direction: column;
+    gap: 1lh;
+    align-items: center;
+    padding-block: var(--space-block);
+    padding-block: calc(1.5 * 3lh);
+    padding-inline: var(--space-inline);
+    text-align: center;
+  }
+
+  .sample-statement_main {
+    font-size: var(--typo-size-700);
+    font-weight: var(--typo-weight-bold);
+  }
+
+  .sample-statement_sub {
+    max-width: var(--typo-width-max);
+    font-size: var(--typo-size-300);
+    line-height: var(--typo-lh-lg);
+    text-align: left;
+  }
+</style>

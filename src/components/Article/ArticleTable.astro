@@ -1,0 +1,18 @@
+<div class="article-table">
+  <div class="article-table_inner">
+    <slot />
+  </div>
+</div>
+
+<style lang="scss">
+  @use '@/styles/_develop/+' as *;
+
+  .article-table {
+    width: 100%;
+    overflow: auto hidden;
+  }
+
+  .article-table_inner {
+    min-width: 40rem;
+  }
+</style>

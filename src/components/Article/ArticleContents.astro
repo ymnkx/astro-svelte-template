@@ -1,0 +1,11 @@
+<div class="article-contents">
+  <slot />
+</div>
+
+<style lang="scss" is:global>
+  @use 'src/styles/_article/style' as *;
+
+  .article-contents {
+    @include article-styles;
+  }
+</style>

@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import SampleSrcImage from '@/image/sample.png';
+import ArtDirectionImage from '@/components/ArtDirectionImage/ArtDirectionImage.astro';
+import SampleSrcImageSp from '@/image/sample_sp.png';
+import SampleSrcImagePc from '@/image/sample_pc.png';
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<div class="sample-images">
+  <div class="sample-images_inner">
+    <h2>Images</h2>
+    <div class="sample-images_set">
+      <img src=`${baseUrl}assets/image/sample.png` alt="" width="400" height="400" loading="lazy" decoding="async" />
+      <img
+        src={SampleSrcImage.src}
+        alt=""
+        width={SampleSrcImage.width}
+        height={SampleSrcImage.height}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <h3>&lt;Image&gt;タグ</h3>
+    <div class="sample-images_set">
+      <Image src=`${baseUrl}assets/image/sample.png` alt="" width="400" height="400" loading="lazy" decoding="async" />
+      <Image src={SampleSrcImage} alt="" />
+    </div>
+    <h3>&lt;picture&gt;タグ</h3>
+    <picture>
+      <source srcset=`${baseUrl}assets/image/sample_pc.png` media="(min-width: 40em)" width="800" height="400" />
+      <img src=`${baseUrl}assets/image/sample_sp.png` alt="" width="400" height="400" loading="lazy" decoding="async" />
+    </picture>
+    <h3>Art Direction Image</h3>
+    <ArtDirectionImage imageMd={SampleSrcImagePc} imageSm={SampleSrcImageSp} />
+  </div>
+</div>
+
+<style lang="scss">
+  @use '@/styles/_develop/+' as *;
+
+  .sample-images {
+    padding-block: var(--space-block);
+    padding-inline: var(--space-inline);
+  }
+
+  .sample-images_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1lh;
+    align-items: center;
+    width: 100%;
+    max-width: var(--width-max);
+    margin-inline: auto;
+  }
+
+  .sample-images_set {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    @include min-screen(md) {
+      flex-direction: row;
+
+      & > :global(*) {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+  }
+</style>
