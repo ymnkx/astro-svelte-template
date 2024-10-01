@@ -6,6 +6,7 @@
     "stylelint-config-html/svelte"
   ],
   "rules": {
+    "color-hex-length": "long",
     "selector-class-pattern": "^[a-z-][a-zA-Z0-9_-]+$",
     "selector-pseudo-class-no-unknown": [
       true,

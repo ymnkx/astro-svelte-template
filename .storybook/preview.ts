@@ -1,3 +1,6 @@
+import '@/styles/base.scss';
+import '@/styles/storybook.scss';
+
 import type { Preview } from '@storybook/svelte';
 
 const preview: Preview = {

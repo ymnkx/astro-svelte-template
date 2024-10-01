@@ -1,14 +1,15 @@
 <script>
   import { fade, fly, slide, scale } from 'svelte/transition';
   import { quintOut } from 'svelte/easing';
+  import SvelteStack from './SvelteStack.svelte';
   let isFade = false;
   let isFly = false;
   let isSlide = false;
   let isScale = false;
 </script>
 
-<ul class="list">
-  <li>
+<SvelteStack>
+  <div class="item">
     <button
       type="button"
       on:click={() => {
@@ -18,9 +19,8 @@
     {#if isFade}
       <div transition:fade={{ delay: 0, duration: 300 }}>fades in and out</div>
     {/if}
-  </li>
-
-  <li>
+  </div>
+  <div class="item">
     <button
       type="button"
       on:click={() => {
@@ -30,9 +30,8 @@
     {#if isFly}
       <div transition:fly={{ delay: 0, duration: 300, x: 100 }}>fly in and out</div>
     {/if}
-  </li>
-
-  <li>
+  </div>
+  <div class="item">
     <button
       type="button"
       on:click={() => {
@@ -42,9 +41,8 @@
     {#if isSlide}
       <div transition:slide={{ delay: 0, duration: 300 }}>slide in and out</div>
     {/if}
-  </li>
-
-  <li>
+  </div>
+  <div class="item">
     <button
       type="button"
       on:click={() => {
@@ -52,7 +50,7 @@
       }}>SCALE</button
     >
     {#if isScale}
-      <div>
+      <div class="item">
         <div
           transition:scale={{ delay: 0, duration: 300, opacity: 0, start: 0.5, easing: quintOut }}
           style="display: inline-block"
@@ -61,13 +59,11 @@
         </div>
       </div>
     {/if}
-  </li>
-</ul>
+  </div>
+</SvelteStack>
 
 <style lang="scss">
-  .list {
-    display: flex;
-    flex-direction: column;
-    gap: 1lh;
+  .item {
+    text-align: center;
   }
 </style>

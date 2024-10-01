@@ -1,0 +1,40 @@
+---
+import Icon from '@/components/Icon/Icon.svelte';
+---
+
+<div class="sample-icons">
+  <h2>Icons</h2>
+  <ul class="sample-icons_list">
+    {
+      ['check', 'chevron-right', 'x-mark', 'code-bracket'].map((name) => (
+        <li>
+          <Icon name={name} />
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  .sample-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 1lh;
+    align-items: center;
+    max-width: var(--width-max);
+    padding-block: var(--space-block);
+    padding-inline: var(--space-inline);
+    margin-inline: auto;
+  }
+
+  .sample-icons_list {
+    display: flex;
+    gap: 1rem;
+
+    & > li {
+      padding: 0.5em;
+      border: solid 1px var(--color-border);
+      border-radius: var(--radius-small);
+    }
+  }
+</style>

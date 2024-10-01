@@ -1,0 +1,34 @@
+## Icon管理
+
+Iconをひとまとめにした「スプライト画像」を使います。各Iconのsvgファイルを指定のフォルダに入れ、コマンドからスプライトファイルを生成します。<br/>
+アイコンは、余白を含めた同一サイズで管理しましょう。
+
+| 名前                   | パス                           |
+| ---------------------- | ------------------------------ |
+| Icon の SVGデータ      | `/src/icons/`                  |
+| 書き出した設定ファイル | `/public/assets/svg/icons.svg` |
+
+変換は command で実行します。
+
+```bash
+npm run svgsprite
+```
+
+アイコンは、スプライト画像からidで指定します。svgのuseを使用して呼び出すことで、CSSのcolorで色の変更が可能になります。<br/>
+たとえば、`./src/icons/abc.svg` は、以下のように呼び出すことができます。
+
+```html
+<svg viewBox="0 0 24 24">
+  <use href="/assets/svg/icons.svg#abc"></use>
+</svg>
+```
+
+上記のコードを含んだIconコンポーネント（`./src/components/Icon.svelte`）を用意してます。
+
+```html
+<Icon name="arrow" />
+```
+
+```html
+<Icon name="code-bracket" size="2rem" />
+```

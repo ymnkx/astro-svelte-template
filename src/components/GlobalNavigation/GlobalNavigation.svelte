@@ -6,17 +6,12 @@
   import { onMount } from 'svelte';
 
   export let selectedUrl = '';
-  console.log(`selectedUrl: ${selectedUrl}`);
 
   const _scrollController = ScrollController();
 
-  const baseUrl = import.meta.env.BASE_URL;
   const breakpoint = '40em';
-  const linkList = [
-    { href: `${baseUrl}`, label: 'home' },
-    { href: `${baseUrl}svelte/`, label: 'svelte' },
-    { href: `${baseUrl}sample/`, label: 'sample' },
-  ];
+
+  import linkList from '@/data/links.ts';
 
   let isOpen = false;
   let isDisabled = true;

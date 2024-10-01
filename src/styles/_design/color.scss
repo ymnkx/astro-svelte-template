@@ -1,11 +1,11 @@
 :root {
-  --color-white: #fff;
-  --color-gray-900: #f0f0f0;
-  --color-gray-700: #ccc;
-  --color-gray-500: #aaa;
-  --color-gray-400: #555;
-  --color-gray-300: #333;
-  --color-black: #000;
+  --color-gray-1000: #ffffff;
+  --color-gray-900: #f9f9f9;
+  --color-gray-700: #e6e6e6;
+  --color-gray-500: #aaaaaa;
+  --color-gray-400: #555555;
+  --color-gray-300: #333333;
+  --color-gray-0: #000000;
 
   --color-orange: hsl(16deg 100% 50%);
 
@@ -13,9 +13,9 @@
   --color-primary: var(--color-orange);
 
   // common
-  --color-text: var(--color-black);
-  --color-text-light: var(--color-white);
-  --color-background: var(--color-white);
+  --color-text: var(--color-gray-0);
+  --color-text-light: var(--color-gray-1000);
+  --color-background-base: var(--color-gray-900);
   --color-background-dark: var(--color-gray-300);
   --color-border: var(--color-gray-500);
 }

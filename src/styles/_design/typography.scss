@@ -4,7 +4,7 @@
   --typo-font-base: "Helvetica Neue", arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", meiryo, sans-serif;
   --typo-font-roboto: "Roboto", sans-serif;
 
-  --typo-size-10: #{rem(10)};
+  // --typo-size-10: #{rem(10)};
   --typo-size-50: #{rem(12)};
   --typo-size-70: #{rem(14)};
   --typo-size-100: #{rem(16)};
@@ -12,16 +12,20 @@
   --typo-size-500: #{rem(24)};
   --typo-size-700: #{rem(32)};
   --typo-size-900: #{rem(40)};
+  --typo-size-1100: #{rem(56)};
 
   --typo-size-base: var(--typo-size-100);
 
-  --typo-lh-xxxxs: 0.75;
-  --typo-lh-xxxs: 1;
-  --typo-lh-xxs: 1.125;
+  --typo-lh-xxs: 1;
   --typo-lh-xs: 1.25;
   --typo-lh-sm: 1.5;
   --typo-lh-md: 1.75;
   --typo-lh-lg: 2;
 
   --typo-lh-base: var(--typo-lh-md);
+
+  --typo-weight-normal: 400;
+  --typo-weight-bold: 600;
+
+  --typo-width-max: 30em;
 }

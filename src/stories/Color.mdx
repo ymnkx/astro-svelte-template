@@ -1,34 +1,21 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
-import color from '/tokens/color.js';
+import color from '/tokens/Color-Primitive.json';
 
-<Meta title="Colors" />
+<Meta title="Desing_Tokens/Colors" />
 
-<h2>Primitive</h2>
+（デザイントークンの管理方法は検討中です）
+
+# Typography
+
 <ColorPalette>
-  <ColorItem title="color.mono" colors={{ White: color.color.white.$value, Black: color.color.black.$value }} />
   <ColorItem
     title="color.grayscale"
     subtitle="Some of the grays"
     colors={{
-      100: color.color.gray[100].$value,
-      300: color.color.gray[300].$value,
-      500: color.color.gray[500].$value,
-      700: color.color.gray[700].$value,
-      900: color.color.gray[900].$value,
+      0: color.color.gray[0].value,
+      10: color.color.gray[10].value,
+      50: color.color.gray[50].value,
+      100: color.color.gray[100].value,
     }}
   />
-  <ColorItem title="color.orange" colors={{ Orange: color.color.orange.$value }} />
-</ColorPalette>
-<h2>Context</h2>
-<ColorPalette>
-  <ColorItem title="color.primary" colors={{ Primary: color.color.primary.$value }} />
-  <ColorItem
-    title="color.text"
-    colors={{ Base: color.color.text.base.$value, onBlack: color.color.text.onDark.$value }}
-  />
-  <ColorItem
-    title="color.background"
-    colors={{ Base: color.color.background.base.$value, onBlack: color.color.background.dark.$value }}
-  />
-  <ColorItem title="color.border" colors={{ Base: color.color.border.$value }} />
 </ColorPalette>

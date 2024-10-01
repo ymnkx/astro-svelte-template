@@ -1,0 +1,23 @@
+---
+const { title = 'Title', description = '' } = Astro.props;
+---
+
+<div class="article-header">
+  <h1 class="article-header_title" set:html={title} />
+  {description && <p class="article-header_description" set:html={description} />}
+</div>
+
+<style lang="scss">
+  .article-header {
+    padding-block: 1.5rlh;
+  }
+
+  .article-header_title {
+    font-size: var(--typo-size-1100);
+    line-height: var(--typo-lh-xs);
+  }
+
+  .article-header_description {
+    margin-block-start: 1rlh;
+  }
+</style>

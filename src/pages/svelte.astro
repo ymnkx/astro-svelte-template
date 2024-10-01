@@ -1,46 +1,12 @@
 ---
-import SvelteBinding from '@/components/Svelte/SvelteBinding.svelte';
-import SvelteEvent from '@/components/Svelte/SvelteEvent.svelte';
-import SvelteProps from '@/components/Svelte/SvelteProps.svelte';
-import SvelteSample from '@/components/Svelte/SvelteSample.svelte';
-import SvelteSlot from '@/components/Svelte/SvelteSlot.svelte';
-import SvelteTransition from '@/components/Svelte/SvelteTransition.svelte';
-import BaseLayout from '@/layouts/base.astro';
-
-import { Image } from 'astro:assets';
-import SampleSrcImage from '@/image/sample.png';
-import CommonPageHeader from '@/components/Common/CommonPageHeader.astro';
-import SvelteSampleBox from '@/blocks/SvelteSampleBox.astro';
-import TestComponent from '@/components/TestComponent/TestComponent.svelte';
-
+import BaseLayout from '@/layouts/Base.astro';
+import SvelteSamples from '@/blocks/Svelte/SvelteSamples.astro';
+import PageHeader from '@/blocks/PageHeader.astro';
 const title = 'Svelte';
-const description = 'Sample Components of Svelte.';
+const description = 'Svelteコンポーネントの基本的な使い方を確認するためのサンプル。';
 ---
 
 <BaseLayout title={title} description={description}>
-  <CommonPageHeader title={title} description={description} />
-  <SvelteSampleBox name="Test">
-    <TestComponent text="storybooked" />
-  </SvelteSampleBox>
-  <SvelteSampleBox name="Simple">
-    <SvelteSample />
-  </SvelteSampleBox>
-  <SvelteSampleBox name="Props">
-    <SvelteProps text="useful" />
-  </SvelteSampleBox>
-  <SvelteSampleBox name="Binding">
-    <SvelteBinding client:load />
-  </SvelteSampleBox>
-  <SvelteSampleBox name="Event">
-    <SvelteEvent client:load />
-  </SvelteSampleBox>
-  <SvelteSampleBox name="Transition">
-    <SvelteTransition client:load />
-  </SvelteSampleBox>
-  <SvelteSampleBox name="Slot">
-    <SvelteSlot>This is Svelte Slot.</SvelteSlot>
-    <SvelteSlot>
-      <Image src={SampleSrcImage} alt="sample" />
-    </SvelteSlot>
-  </SvelteSampleBox>
+  <PageHeader title={title} description={description} />
+  <SvelteSamples />
 </BaseLayout>

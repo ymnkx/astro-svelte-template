@@ -1,15 +1,12 @@
 <script>
-	let name = 'sample';
+  import SvelteInput from './SvelteInput.svelte';
+  import SvelteStack from './SvelteStack.svelte';
+  import SvelteValue from './SvelteValue.svelte';
+
+  let name = 'value';
 </script>
 
-<div class="set">
-  <input bind:value={name}>
-  <p>{name}</p>
-</div>
-
-<style>
-  .set {
-    display: flex;
-    gap: 1rem;
-  }
-</style>
+<SvelteStack>
+  <SvelteInput bind:value={name} />
+  <p class="result">You can Change <SvelteValue>{name}</SvelteValue> in Component reactively.</p>
+</SvelteStack>
