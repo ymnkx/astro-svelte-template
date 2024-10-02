@@ -1,74 +1,25 @@
 ---
-import SvelteSampleBox from '@/blocks/SvelteSampleBox.astro';
-import CommonCluster from '@/components/Common/CommonCluster.astro';
-import CommonPageHeader from '@/components/Common/CommonPageHeader.astro';
-import CommonStack from '@/components/Common/CommonStack.astro';
-import SimpleButton from '@/components/SimpleButton/SimpleButton.svelte';
-import SvgIcon from '@/components/SvgIcon/SvgIcon.svelte';
-import TabMenu from '@/components/TabMenu/TabMenu.svelte';
-import BaseLayout from '@/layouts/base.astro';
-import { Image } from 'astro:assets';
-import SampleSrcImage from '@/image/sample.png';
-import ArtDirectionImage from '@/components/ArtDirectionImage/ArtDirectionImage.astro';
-import SampleSrcImageSp from '@/image/sample_sp.png';
-import SampleSrcImagePc from '@/image/sample_pc.png';
+import BaseLayout from '@/layouts/Base.astro';
+import PageHeader from '@/blocks/PageHeader.astro';
+import SampleHero from '@/blocks/Sample/SampleHero.astro';
+import SampleStatement from '@/blocks/Sample/SampleStatement.astro';
+import SampleSection from '@/blocks/Sample/SampleSection.astro';
+import SampleIcons from '@/blocks/Sample/SampleIcons.astro';
+import SampleQA from '@/blocks/Sample/SampleQA.astro';
+import SampleBanner from '@/blocks/Sample/SampleBanner.astro';
+import SampleImages from '@/blocks/Sample/SampleImages.astro';
+
 const title = 'Sample';
-const description = 'Sample of Major Components.';
-const baseUrl = import.meta.env.BASE_URL;
+const description = 'よくありそうな感じのシンプルなWebサイトのサンプル。';
 ---
 
 <BaseLayout title={title} description={description}>
-  <CommonPageHeader title={title} description={description} />
-
-  <SvelteSampleBox name="TButton">
-    <CommonStack>
-      <SimpleButton label="Small" size="small" />
-      <SimpleButton label="Medium" size="medium" />
-      <SimpleButton label="Medium:A" size="medium" tag="a" />
-      <SimpleButton label="Large" size="large" />
-      <SimpleButton label="Full" size="full" tag="a" />
-    </CommonStack>
-  </SvelteSampleBox>
-
-  <SvelteSampleBox name="Icon">
-    <CommonCluster>
-      {['check', 'chevron-right', 'x-mark'].map((name) => <SvgIcon name={name} />)}
-    </CommonCluster>
-  </SvelteSampleBox>
-
-  <SvelteSampleBox name="Tab">
-    <TabMenu client:load />
-  </SvelteSampleBox>
-
-  <SvelteSampleBox name="Image">
-    <CommonStack>
-      <h3>&lt;img&gt;</h3>
-      <img src=`${baseUrl}assets/image/sample.png` alt="" width="400" height="400" loading="lazy" decoding="async" />
-      <img
-        src={SampleSrcImage.src}
-        alt=""
-        width={SampleSrcImage.width}
-        height={SampleSrcImage.height}
-        loading="lazy"
-        decoding="async"
-      />
-      <h3>&lt;Image&gt;</h3>
-      <Image src=`${baseUrl}assets/image/sample.png` alt="" width="400" height="400" loading="lazy" decoding="async" />
-      <Image src={SampleSrcImage} alt="" />
-      <h3>&lt;picture&gt;</h3>
-      <picture>
-        <source srcset=`${baseUrl}assets/image/sample_pc.png` media="(min-width: 40em)" width="800" height="400" />
-        <img
-          src=`${baseUrl}assets/image/sample_sp.png`
-          alt=""
-          width="400"
-          height="400"
-          loading="lazy"
-          decoding="async"
-        />
-      </picture>
-      <h3>Custom &lt;Image&gt;</h3>
-      <ArtDirectionImage imageMd={SampleSrcImagePc} imageSm={SampleSrcImageSp} />
-    </CommonStack>
-  </SvelteSampleBox>
+  <PageHeader title={title} description={description} />
+  <SampleHero />
+  <SampleStatement />
+  <SampleSection />
+  <SampleQA />
+  <SampleIcons />
+  <SampleImages />
+  <SampleBanner />
 </BaseLayout>

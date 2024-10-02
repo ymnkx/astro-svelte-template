@@ -1,0 +1,21 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+import color from '/tokens/Color-Primitive.json';
+
+<Meta title="Desing_Tokens/Colors" />
+
+（デザイントークンの管理方法は検討中です）
+
+# Typography
+
+<ColorPalette>
+  <ColorItem
+    title="color.grayscale"
+    subtitle="Some of the grays"
+    colors={{
+      0: color.color.gray[0].value,
+      10: color.color.gray[10].value,
+      50: color.color.gray[50].value,
+      100: color.color.gray[100].value,
+    }}
+  />
+</ColorPalette>

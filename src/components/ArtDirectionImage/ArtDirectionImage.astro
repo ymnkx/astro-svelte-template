@@ -3,9 +3,10 @@ import type { ImageMetadata } from 'astro';
 type Props = {
   imageMd: ImageMetadata;
   imageSm: ImageMetadata;
+  alt: string;
 };
 import { getImage } from 'astro:assets';
-const { imageMd, imageSm } = Astro.props;
+const { imageMd, imageSm, alt = '' } = Astro.props;
 const optimizedMd = await getImage({ src: imageMd });
 const optimizedSm = await getImage({ src: imageSm });
 ---
@@ -14,15 +15,15 @@ const optimizedSm = await getImage({ src: imageSm });
   <source
     srcset={optimizedMd.src}
     media="(min-width: 40em)"
-    width={optimizedMd.options.width}
-    height={optimizedMd.options.height}
+    width={optimizedMd.attributes.width}
+    height={optimizedMd.attributes.height}
   />
   <img
     src={optimizedSm.src}
-    alt="アートディレクションサンプル"
-    width={optimizedSm.options.width}
-    height={optimizedSm.options.height}
-    loading={optimizedSm.options.loading}
-    decoding={optimizedSm.options.decoding}
+    alt={alt}
+    width={optimizedSm.attributes.width}
+    height={optimizedSm.attributes.height}
+    loading={optimizedSm.attributes.loading}
+    decoding={optimizedSm.attributes.decoding}
   />
 </picture>

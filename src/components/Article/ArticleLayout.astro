@@ -1,0 +1,26 @@
+---
+import ArticleContents from './ArticleContents.astro';
+import ArticleHeader from './ArticleHeader.astro';
+const { title, description } = Astro.props;
+---
+
+<article class="article-layout">
+  <div class="article-layout_inner">
+    <ArticleHeader title={title} description={description} />
+    <ArticleContents>
+      <slot />
+    </ArticleContents>
+  </div>
+</article>
+
+<style lang="scss">
+  .article-layout {
+    padding-block-start: 3lh;
+    padding-inline: var(--space-inline);
+  }
+
+  .article-layout_inner {
+    max-width: var(--width-max);
+    margin-inline: auto;
+  }
+</style>

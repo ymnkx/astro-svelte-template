@@ -1,0 +1,7 @@
+@use "src/styles/_article/style" as *;
+
+.sbdocs-content {
+  .sb-unstyled {
+    @include article-styles;
+  }
+}

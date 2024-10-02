@@ -1,0 +1,12 @@
+{
+  "color": {
+    "text": {
+      "default": {
+        "attributes": {
+          "category": "color"
+        },
+        "value": "{color.gray.10}"
+      }
+    }
+  }
+}

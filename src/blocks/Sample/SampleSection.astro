@@ -1,0 +1,66 @@
+---
+import Button from '@/components/Button/Button.svelte';
+import GridContainer from '@/components/Grid/GridContainer.astro';
+import GridContent from '@/components/Grid/GridContent.astro';
+const name = 'Section Block';
+---
+
+<div class="sample-section">
+  <div class="sample-section_inner">
+    <!-- 汎用Gridはココでしか使ってない。他で使わないことを決めたら消す。 -->
+    <GridContainer>
+      <GridContent column="1/4" tb="1/7"><div class="sample-section_image"></div></GridContent>
+      <GridContent column="4/7" tb="1/7">
+        <div class="sample-section_contents">
+          <h2 class="sample-section_title">{name}</h2>
+          <p>
+            よくあるレイアウト。Gridを使って自由度高く設定できるように組んであるが、デザイン次第でどうとでもなるところなので、別の最適解があるかもしれない。<br
+            />Gridを横幅全体に広げるか、コンテンツの幅を制限した中でGridを使用するかは悩ましいところ。広めの横幅制限（--width-max-lg）を用意した。
+          </p>
+          <div class="sample-section_button">
+            <Button label="BUTTON" size="medium" />
+          </div>
+        </div>
+      </GridContent>
+    </GridContainer>
+  </div>
+</div>
+
+<style lang="scss">
+  @use '@/styles/_develop/+' as *;
+
+  .sample-section {
+    padding-block: var(--space-block);
+    padding-inline: var(--space-inline);
+  }
+
+  .sample-section_inner {
+    max-width: var(--width-max-lg);
+    margin-inline: auto;
+  }
+
+  .sample-section_image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-image: linear-gradient(100deg, rgb(243 196 170), rgb(228 81 154) 25%, rgb(77 84 224));
+  }
+
+  .sample-section_contents {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5lh;
+    padding-block: var(--space-block);
+
+    @include min-screen(lg) {
+      padding-block: 0;
+    }
+  }
+
+  .sample-section_title {
+    font-size: var(--typo-size-700);
+  }
+
+  .sample-section_button {
+    margin-block-start: 0.5lh;
+  }
+</style>

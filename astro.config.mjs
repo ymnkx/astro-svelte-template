@@ -3,16 +3,15 @@ import imports from 'vituum/plugins/imports.js';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import d from './src/data/project.ts';
-const { url, publicDir, baseUrl } = d;
+const { siteUrl, publicDir, baseUrl } = d;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 import mdx from '@astrojs/mdx';
-
 import svelte from '@astrojs/svelte';
 
 // https://astro.build/config
 export default defineConfig({
-  site: url,
+  site: siteUrl,
   base: baseUrl,
   trailingSlash: 'always',
   outDir: `./dist${baseUrl}`,
@@ -55,6 +54,13 @@ export default defineConfig({
               : name.endsWith('.js')
                 ? '_assets/js/[name].[hash][extname]'
                 : '_assets/image/[name].[hash][extname]',
+        },
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
         },
       },
     },

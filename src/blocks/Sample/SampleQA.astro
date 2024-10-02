@@ -1,0 +1,44 @@
+---
+import Accordion from '@/components/Accordion/Accordion.svelte';
+---
+
+<div class="sample-qa">
+  <div class="sample-qa_inner">
+    <h2>Q&A</h2>
+    <div class="sample-qa_list">
+      <Accordion client:load>
+        <div slot="label">Title 1</div>
+        <div slot="contents">This is Contents1.</div>
+      </Accordion>
+      <Accordion client:load>
+        <div slot="label">Title 2</div>
+        <div slot="contents">This is Contents2.</div>
+      </Accordion>
+      <Accordion client:load>
+        <div slot="label">Title 3</div>
+        <div slot="contents">This is Contents3.</div>
+      </Accordion>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .sample-qa {
+    padding-block: var(--space-block);
+    padding-inline: var(--space-inline);
+  }
+
+  .sample-qa_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1lh;
+    align-items: center;
+    width: 100%;
+    max-width: var(--width-max);
+    margin-inline: auto;
+  }
+
+  .sample-qa_list {
+    width: 100%;
+  }
+</style>

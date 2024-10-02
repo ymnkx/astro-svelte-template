@@ -1,0 +1,89 @@
+@mixin article-styles {
+  p {
+    margin-block-end: 0.5rlh;
+    line-height: var(--typo-lh-lg);
+  }
+
+  :where(p, li) code {
+    padding: 0.05lh 0.25em;
+    font-family: inherit;
+    background-color: var(--color-gray-700);
+    border-radius: var(--radius-small);
+  }
+
+  ul {
+    padding-inline-start: 1rem;
+    margin-block-end: 0.5rlh;
+    text-indent: 0.25em;
+    list-style: disc;
+  }
+
+  li + li {
+    margin-block-start: 0.125lh;
+  }
+
+  table {
+    width: 100%;
+    margin: 0;
+    margin-block: 1rlh;
+    font-size: var(--typo-size-70);
+    border-spacing: 0;
+
+    th {
+      padding: 0.5lh 1em;
+      border-bottom: 2px solid var(--color-border);
+    }
+
+    td {
+      padding: 0.5lh 1em;
+      vertical-align: top;
+      border-bottom: 1px solid var(--color-border);
+    }
+  }
+
+  h2 {
+    position: relative;
+    left: -12px;
+    padding-inline-start: 12px;
+    margin-block: 3rlh 0.75rlh;
+
+    &:first-child {
+      margin-block-start: 1rlh;
+    }
+
+    &::before {
+      position: absolute;
+      top: calc((1lh - 1em) * 0.5);
+      left: 0;
+      width: 4px;
+      height: 1em;
+      content: "";
+      background-color: var(--color-primary);
+    }
+  }
+
+  h3 {
+    margin-block: 1.5rlh 0.5rlh;
+  }
+
+  h4 {
+    margin-block: 0.5rlh 0.25rlh;
+  }
+
+  pre {
+    padding: 1.5em;
+    margin-block: 1lh;
+    font-family: Inter, sans-serif;
+    border-radius: var(--radius-midium);
+  }
+
+  blockquote {
+    padding: 0.75lh 1.5em;
+    background-color: var(--color-gray-700);
+    border-radius: var(--radius-midium);
+
+    ul {
+      margin-block-end: 0;
+    }
+  }
+}

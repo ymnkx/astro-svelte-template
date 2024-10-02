@@ -1,20 +1,29 @@
 <script>
+  import Button from '@/components/Button/Button.svelte';
+  import SvelteStack from './SvelteStack.svelte';
+
   let count = 0;
+
+  $: double = count * 2;
+  $: if (count > 10) {
+    alert('You clicked more than 10 times!');
+  }
 
   const handleClick = (event) => {
     count += 1;
   };
 </script>
 
-<button on:click={handleClick} class="btn">
-  count: {count}
-</button>
+<SvelteStack>
+  <Button on:click={handleClick} label={`Clicked: ${count}`} />
+  <div class="result">
+    <p>{count} x 2 = {double}</p>
+    <p>If you click more than 10 times...</p>
+  </div>
+</SvelteStack>
 
 <style lang="scss">
-  .btn {
-    padding: 0.25lh 1em;
-    background-color: var(--color-white);
-    border: 1px solid #ccc;
-    border-radius: var(--radius-midium);
+  .result {
+    text-align: center;
   }
 </style>

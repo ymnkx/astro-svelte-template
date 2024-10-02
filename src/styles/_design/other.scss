@@ -1,5 +1,14 @@
+@use "@/styles/_develop/+.scss" as *;
+
 :root {
   --radius-small: 0.25rem;
   --radius-midium: 0.5rem;
   --radius-large: 1rem;
+
+  --width-max: 45rem;
+  --width-max-lg: 45rem;
+
+  @include min-screen(lg) {
+    --width-max-lg: 90rem;
+  }
 }

@@ -1,0 +1,32 @@
+---
+import GlobalNavigation from '@/components/GlobalNavigation/GlobalNavigation.svelte';
+import Icon from '@/components/Icon/Icon.svelte';
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<header class="common-header">
+  <div class="common-header_inner">
+    <a href=`${baseUrl}` class="common-header_title" aria-label="logo">
+      <Icon name="code-bracket" size="2rem" />
+    </a>
+    <div class="common-header_navi">
+      <GlobalNavigation client:load selectedUrl={Astro.url.pathname} />
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  .common-header {
+    padding: 0 1rem;
+  }
+
+  .common-header_inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5lh 0;
+  }
+
+  .common-header_title {
+    text-transform: uppercase;
+  }
+</style>
