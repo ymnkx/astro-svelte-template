@@ -1,0 +1,29 @@
+---
+import Carousel from '@/components/Carousel/Carousel.svelte';
+import CarouselSolo from '@/components/Carousel/CarouselSolo.svelte';
+---
+
+<div class="sample-carousel">
+  <div class="sample-carousel_inner">
+    <h2>Carousel</h2>
+    <Carousel client:load />
+    <CarouselSolo client:load />
+  </div>
+</div>
+
+<style lang="scss">
+  .sample-carousel {
+    padding-block: var(--space-block);
+    padding-inline: var(--space-inline);
+  }
+
+  .sample-carousel_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1lh;
+    align-items: center;
+    width: 100%;
+    max-width: var(--width-max);
+    margin-inline: auto;
+  }
+</style>
