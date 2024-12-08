@@ -1,6 +1,6 @@
-@import "./animation.scss";
-@import "./color.scss";
-@import "./other.scss";
-@import "./space.scss";
-@import "./typography.scss";
-@import "./zindex.scss";
+@use "./animation.scss" as *;
+@use "./color.scss" as *;
+@use "./other.scss" as *;
+@use "./space.scss" as *;
+@use "./typography.scss" as *;
+@use "./zindex.scss" as *;
