@@ -4,14 +4,13 @@
   import { matchMediaController } from '@/scripts/matchMediaController';
   import { ScrollController } from '@/scripts/scrollController';
   import { onMount } from 'svelte';
+  import linkList from '@/data/links.ts';
 
+  // let { selectedUrl = '' } = $props;
   export let selectedUrl = '';
 
   const _scrollController = ScrollController();
-
   const breakpoint = '40em';
-
-  import linkList from '@/data/links.ts';
 
   let isOpen = false;
   let isDisabled = true;
@@ -86,7 +85,7 @@
         class="global-navigation_bg"
         transition:fade={{ delay: 0, duration: 300, easing: quintOut }}
         aria-hidden={!isOpen}
-        on:click={close}
+        onclick={close}
       ></div>
     {/if}
     <button
@@ -95,7 +94,7 @@
       aria-label="menu"
       aria-expanded={isOpen}
       data-role="control"
-      on:click={btnClick}
+      onclick={btnClick}
     >
       {#if isOpen}
         <span>close</span>
@@ -123,7 +122,7 @@
         type="button"
         data-role="trap"
         aria-label="global navigation trap"
-        on:focus={returnFocus}
+        onfocus={returnFocus}
       ></button>
     {/if}
   {/if}

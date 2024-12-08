@@ -1,12 +1,12 @@
 <script>
   import { circInOut } from 'svelte/easing';
-  import { tweened } from 'svelte/motion';
+  import { Tween } from 'svelte/motion';
   import Button from '@/components/Button/Button.svelte';
   import SvelteStack from './SvelteStack.svelte';
 
   let isMoving = false;
 
-  const progress = tweened(0, {
+  const progress = new Tween(0, {
     duration: 300,
     easing: circInOut,
   });
@@ -21,10 +21,10 @@
 
 <SvelteStack>
   <p>{isMoving ? 'move' : 'stop'}</p>
-  <progress value={$progress} />
+  <progress value={progress.current}></progress>
   <div class="buttons">
-    <Button on:click={() => set(0)} label="0" />
-    <Button on:click={() => set(0.5)} label="50" />
-    <Button on:click={() => set(1)} label="100" />
+    <Button onclick={() => set(0)} label="0" />
+    <Button onclick={() => set(0.5)} label="50" />
+    <Button onclick={() => set(1)} label="100" />
   </div>
 </SvelteStack>

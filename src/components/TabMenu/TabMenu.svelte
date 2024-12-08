@@ -15,7 +15,7 @@
       role="tab"
       aria-selected={selectedTab === tab.id}
       aria-controls={tab.id}
-      on:click={() => {
+      onclick={() => {
         selectedTab = tab.id;
       }}
     >

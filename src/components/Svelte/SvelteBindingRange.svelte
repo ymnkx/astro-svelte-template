@@ -2,9 +2,9 @@
   import SvelteInput from './SvelteInput.svelte';
   import SvelteStack from './SvelteStack.svelte';
 
-  let a = 0;
-  let b = 0;
-  $: result = a * b;
+  let a = $state(0);
+  let b = $state(0);
+  let result = $derived(a * b);
 </script>
 
 <SvelteStack>

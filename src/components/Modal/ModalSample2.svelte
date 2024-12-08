@@ -17,9 +17,9 @@
 </script>
 
 <div>
-  <Button on:click={() => (showModal = true)} label={`Open Modal`} />
-  <Button on:click={() => openModal(2)} label={`Open Modal(3)`} />
-  <Button on:click={() => openModal(4)} label={`Open Modal(5)`} />
+  <Button onclick={() => (showModal = true)} label={`Open Modal`} />
+  <Button onclick={() => openModal(2)} label={`Open Modal(3)`} />
+  <Button onclick={() => openModal(4)} label={`Open Modal(5)`} />
 </div>
 <Modal bind:showModal>
   <Splide

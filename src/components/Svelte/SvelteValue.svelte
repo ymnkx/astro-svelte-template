@@ -1,8 +1,10 @@
 <script lang="ts">
-  export let color: string = '#bd3300';
+  let { color = '#bd3300', children } = $props();
 </script>
 
-<span class="value" style="background-color: {color}"><slot /></span>
+<span class="value" style="background-color: {color}">
+  {@render children?.()}
+</span>
 
 <style>
   .value {

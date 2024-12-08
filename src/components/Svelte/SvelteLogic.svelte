@@ -4,13 +4,13 @@
 
   let count = 1;
 
-  const handleClick = (event) => {
+  const onclick = (event) => {
     count += 1;
   };
 </script>
 
 <SvelteStack>
-  <Button on:click={handleClick} label={`Clicked: ${count}`} />
+  <Button {onclick} label={`Clicked: ${count}`} />
   <p>
     {#if count % 2 === 0}
       Even

@@ -1,10 +1,14 @@
 <script lang="ts">
-  export let primary = false;
-  export let label: string = 'ラベル';
-  export let size: 'small' | 'medium' | 'large' | 'full' = 'medium';
-  export let as: 'span' | undefined = undefined;
-  $: mode = primary ? '-primary' : '-secondary';
-  $: classList = ['simple-button', `-${size}`, mode].join(' ');
+  interface Props {
+    primary: boolean;
+    label: string;
+    size: 'small' | 'medium' | 'large';
+    as: 'span' | undefined;
+    onclick: () => void;
+  }
+  let { primary = false, label = 'ラベル', size = 'medium', as = undefined, onclick }: Props = $props();
+  let mode = $derived(() => (primary ? '-primary' : '-secondary'));
+  let classList: string = $derived(['simple-button', `-${size}`, mode].join(' '));
 </script>
 
 {#if as === 'span'}
@@ -12,7 +16,7 @@
     <span class="simple-button_inner">{label}</span>
   </span>
 {:else}
-  <button type="button" class={classList} on:click>
+  <button type="button" class={classList} {onclick}>
     <span class="simple-button_inner">{label}</span>
   </button>
 {/if}
