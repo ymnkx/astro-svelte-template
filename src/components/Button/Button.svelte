@@ -1,13 +1,13 @@
 <script lang="ts">
   interface Props {
-    primary: boolean;
-    label: string;
-    size: 'small' | 'medium' | 'large';
-    as: 'span' | undefined;
-    onclick: () => void;
+    primary?: boolean;
+    label?: string;
+    size?: 'small' | 'medium' | 'large';
+    as?: 'span' | undefined;
+    onclick?: () => void;
   }
   let { primary = false, label = 'ラベル', size = 'medium', as = undefined, onclick }: Props = $props();
-  let mode = $derived(() => (primary ? '-primary' : '-secondary'));
+  let mode = $derived((() => (primary ? '-primary' : '-secondary'))());
   let classList: string = $derived(['simple-button', `-${size}`, mode].join(' '));
 </script>
 
