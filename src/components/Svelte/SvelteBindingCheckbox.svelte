@@ -1,7 +1,7 @@
 <script>
   import SvelteStack from './SvelteStack.svelte';
 
-  let isChecked = false;
+  let isChecked = $state(false);
 </script>
 
 <SvelteStack>

@@ -1,7 +1,6 @@
 <script>
   import SvelteValue from './SvelteValue.svelte';
-  export let textValue = 'props';
-  export let htmlValue = '<b>html</b> props';
+  let { textValue = 'props', htmlValue = '<b>html</b> props' } = $$props;
 </script>
 
 <p>

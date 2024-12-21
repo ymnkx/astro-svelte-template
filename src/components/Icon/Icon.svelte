@@ -1,6 +1,5 @@
 <script>
-  export let name = 'check';
-  export let size = '1.5rem';
+  let { name = 'check', size = '1.5rem' } = $props();
   const baseUrl = import.meta.env.BASE_URL;
 </script>
 

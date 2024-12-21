@@ -2,17 +2,18 @@
   import { fade, fly, slide, scale } from 'svelte/transition';
   import { quintOut } from 'svelte/easing';
   import SvelteStack from './SvelteStack.svelte';
-  let isFade = false;
-  let isFly = false;
-  let isSlide = false;
-  let isScale = false;
+
+  let isFade = $state(false);
+  let isFly = $state(false);
+  let isSlide = $state(false);
+  let isScale = $state(false);
 </script>
 
 <SvelteStack>
   <div class="item">
     <button
       type="button"
-      on:click={() => {
+      onclick={() => {
         isFade = !isFade;
       }}>FADE</button
     >
@@ -23,7 +24,7 @@
   <div class="item">
     <button
       type="button"
-      on:click={() => {
+      onclick={() => {
         isFly = !isFly;
       }}>FLY</button
     >
@@ -34,7 +35,7 @@
   <div class="item">
     <button
       type="button"
-      on:click={() => {
+      onclick={() => {
         isSlide = !isSlide;
       }}>SLIDE</button
     >
@@ -45,7 +46,7 @@
   <div class="item">
     <button
       type="button"
-      on:click={() => {
+      onclick={() => {
         isScale = !isScale;
       }}>SCALE</button
     >

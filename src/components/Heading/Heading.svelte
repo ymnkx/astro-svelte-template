@@ -1,6 +1,9 @@
 <script lang="ts">
-  export let label: string = 'ラベル';
-  export let level: 2 | 3 | 4 | 5 | 6 = 2;
+  interface Props {
+    label: string;
+    level: 2 | 3 | 4 | 5 | 6;
+  }
+  let { label = 'ラベル', level = 2 }: Props = $props();
 </script>
 
 {#if level === 2}

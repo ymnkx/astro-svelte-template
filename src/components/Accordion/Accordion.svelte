@@ -19,7 +19,7 @@
 </script>
 
 <details class="accordion-menu" open={isOpen}>
-  <summary class="accordion-menu_summary" data-role="summary" aria-label="summary" on:click={clickHandler}>
+  <summary class="accordion-menu_summary" data-role="summary" aria-label="summary" onclick={clickHandler}>
     <span class="accordion-menu_label">
       <slot name="label">Label</slot>
     </span>

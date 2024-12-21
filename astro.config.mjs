@@ -26,22 +26,22 @@ export default defineConfig({
     inlineStylesheets: 'never', // css外部ファイル化のため
   },
   vite: {
-    plugins: [
-      imports({
-        filenamePattern: {
-          '+.css': [],
-          '+.scss': 'src/styles',
-          '+.js': [],
-          '+.ts': 'src/scripts',
-        },
-      }),
-    ],
-    resolve: {
-      alias: {
-        '@/': `${path.resolve(__dirname, 'src')}/`,
-        '@scss/': `${path.resolve(__dirname, 'src')}/styles/`,
-      },
-    },
+    // plugins: [
+    //   imports({
+    //     filenamePattern: {
+    //       '+.css': [],
+    //       '+.scss': 'src/styles',
+    //       '+.js': [],
+    //       '+.ts': 'src/scripts',
+    //     },
+    //   }),
+    // ],
+    // resolve: {
+    //   alias: {
+    //     '@/': `${path.resolve(__dirname, 'src')}/`,
+    //     '@scss/': `${path.resolve(__dirname, 'src')}/styles/`,
+    //   },
+    // },
     build: {
       assetsInlineLimit: 0,
       // js外部ファイル化のため
