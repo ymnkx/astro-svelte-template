@@ -14,7 +14,7 @@
   let isDisabled = $state(undefined);
 
   const change = (flag) => {
-    console.log('change', flag);
+    // console.log('change', flag);
     isOpen = flag;
     isDisabled = flag;
   };
