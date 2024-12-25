@@ -1,13 +1,25 @@
 ---
-import Carousel from '@/components/Carousel/Carousel.svelte';
-import CarouselSolo from '@/components/Carousel/CarouselSolo.svelte';
+import CarouselSwiperVisible from '@/components/CarouselSwiper/CarouselSwiperVisible.svelte';
+import CarouselSwiperResponsive from '@/components/CarouselSwiper/CarouselSwiperResponsive.svelte';
+import CarouselSwiperCore from '@/components/CarouselSwiper/CarouselSwiperCore.svelte';
+import CarouselSwiperSolo from '@/components/CarouselSwiper/CarouselSwiperSolo.svelte';
+import CarouselSwiperAstro from '@/components/CarouselSwiper/CarouselSwiperAstro.astro';
 ---
 
 <div class="sample-carousel">
   <div class="sample-carousel_inner">
     <h2>Carousel</h2>
-    <Carousel client:load />
-    <CarouselSolo client:load />
+    <h3>Solo</h3>
+    <CarouselSwiperSolo client:load />
+    <h3>Respoinsive</h3>
+    <CarouselSwiperResponsive client:load />
+    <h3>Loop + CenteredSlides + UI</h3>
+    <CarouselSwiperCore client:load />
+    <h3>Overflow Visible</h3>
+    <CarouselSwiperVisible client:load />
+    <h3>Astro Component</h3>
+    <p>AstroコンポーネントならAstroのImageコンポーネントが使用可能。</p>
+    <CarouselSwiperAstro />
   </div>
 </div>
 

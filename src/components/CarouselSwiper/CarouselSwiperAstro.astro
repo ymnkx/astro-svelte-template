@@ -1,0 +1,70 @@
+---
+import Button from '../Button/Button.svelte';
+---
+
+<swiper-container init="false" Pagination={true} navigation={true} id="js-swiper-astro">
+  <swiper-slide><div class="item">Astro 1</div></swiper-slide>
+  <swiper-slide><div class="item">Astro 2</div></swiper-slide>
+  <swiper-slide><div class="item">Astro 3</div></swiper-slide>
+  <swiper-slide><div class="item">Astro 4</div></swiper-slide>
+  <swiper-slide><div class="item">Astro 5</div></swiper-slide>
+  <swiper-slide><div class="item">Astro 6</div></swiper-slide>
+  <swiper-slide><div class="item">Astro 7</div></swiper-slide>
+  <swiper-slide><div class="item">Astro 8</div></swiper-slide>
+</swiper-container>
+<div id="js-swiper-astro-ui">
+  <button type="button" data-role="prev" aria-label="Prev"><Button label="Prev" as="span" /></button>
+  <span data-role="current"></span>
+  <button type="button" data-role="next" aria-label="Next"><Button label="Next" as="span" /></button>
+</div>
+
+<style lang="scss">
+  swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1/1;
+    background-color: lightblue;
+  }
+</style>
+<script>
+  import { register } from 'swiper/element/bundle';
+
+  register();
+
+  const swiperElement: any = document.querySelector(`#js-swiper-astro`);
+  const nextButton: HTMLButtonElement | null = document.querySelector(`#js-swiper-astro-ui [data-role="next"]`);
+  const prevButton: HTMLButtonElement | null = document.querySelector(`#js-swiper-astro-ui [data-role="prev"]`);
+  const currentElement = document.querySelector(`#js-swiper-astro-ui [data-role="current"]`);
+  let current;
+  let total;
+
+  const goNext = () => {
+    if (swiperElement) swiperElement.swiper.slideNext();
+  };
+
+  const goPrev = () => {
+    if (swiperElement) swiperElement.swiper.slidePrev();
+  };
+
+  const params = {
+    loop: true,
+    centeredSlides: true,
+    spaceBetween: 10,
+    slidesPerView: 3,
+  };
+  Object.assign(swiperElement, params);
+  swiperElement.initialize();
+  swiperElement.swiper.on('slideChange', () => {
+    current = swiperElement.swiper.realIndex + 1;
+    total = swiperElement.swiper.slides.length;
+    if (currentElement) currentElement.textContent = `${current} / ${total}`;
+  });
+  nextButton?.addEventListener('click', goNext);
+  prevButton?.addEventListener('click', goPrev);
+</script>
