@@ -1,0 +1,27 @@
+---
+import PageMenu from '@/components/PageMenu/PageMenu.svelte';
+const linkList = [
+  { label: 'top', id: 'top' },
+  { label: 'statement', id: 'statement' },
+  { label: 'section', id: 'section' },
+  { label: 'qanda', id: 'qanda' },
+  { label: 'carousel', id: 'carousel' },
+  { label: 'modal', id: 'modal' },
+  { label: 'icons', id: 'icons' },
+  { label: 'images', id: 'images' },
+  { label: 'banner', id: 'banner' },
+];
+---
+
+<div class="sample-pageMenu">
+  <PageMenu linkList={linkList} client:only />
+</div>
+
+<style lang="scss">
+  .sample-pageMenu {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+</style>
