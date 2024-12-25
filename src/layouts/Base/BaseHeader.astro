@@ -10,7 +10,7 @@ const baseUrl = import.meta.env.BASE_URL;
       <Icon name="code-bracket" size="2rem" />
     </a>
     <div class="common-header_navi">
-      <GlobalNavigation client:load selectedUrl={Astro.url.pathname} />
+      <GlobalNavigation selectedUrl={Astro.url.pathname} client:load />
     </div>
   </div>
 </header>
