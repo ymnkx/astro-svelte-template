@@ -1,16 +1,39 @@
 <script lang="ts">
-  export let showModal: boolean;
-  let dialog: HTMLDialogElement;
-  $: if (dialog && showModal) dialog.showModal();
+  let { showModal = $bindable(false), children } = $props();
+  let dialog = $state<HTMLDialogElement>();
+  let isClosing = $state(false);
+
+  $effect(() => {
+    if (dialog && showModal) dialog.showModal();
+  });
+
+  const closeModal = () => {
+    isClosing = true;
+    setTimeout(() => {
+      dialog?.close();
+      isClosing = false;
+    }, 300);
+  };
+
+  const closeWithEsc = (e: KeyboardEvent) => {
+    if (e.key === 'Esc' || e.key === 'Escape') {
+      closeModal();
+    }
+  };
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
-<dialog bind:this={dialog} on:close={() => (showModal = false)} on:click|self={() => dialog.close()}>
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div class="inner" on:click|stopPropagation>
-    <slot></slot>
-    <!-- svelte-ignore a11y-autofocus -->
-    <button autofocus on:click={() => dialog.close()}>close modal</button>
+<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
+<dialog
+  bind:this={dialog}
+  onclose={() => (showModal = false)}
+  onclick={(e) => e.target === dialog && closeModal()}
+  onkeydown={closeWithEsc}
+  class={isClosing ? '-is-closing' : ''}
+>
+  <div class="inner">
+    {@render children?.()}
+    <!-- svelte-ignore a11y_autofocus -->
+    <button autofocus onclick={closeModal}>close modal</button>
   </div>
 </dialog>
 
@@ -45,12 +68,12 @@
       opacity: 1;
     }
 
-    // @starting-style {
-    //   &,
-    //   &::backdrop {
-    //     opacity: 0;
-    //   }
-    // }
+    @starting-style {
+      &,
+      &::backdrop {
+        opacity: 0;
+      }
+    }
   }
 
   dialog[open] {
@@ -67,6 +90,23 @@
     }
   }
 
+  dialog[open].-is-closing {
+    animation: move-back var(--this-duration) var(--this-easing);
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes move-back {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    to {
+      opacity: 0;
+      transform: translateY(-16px);
+    }
+  }
+
   dialog[open]::backdrop {
     animation: fade var(--this-duration) var(--this-easing);
   }
@@ -78,6 +118,21 @@
 
     to {
       opacity: 1;
+    }
+  }
+
+  dialog[open].-is-closing::backdrop {
+    animation: fade-back var(--this-duration) var(--this-easing);
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fade-back {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
     }
   }
 

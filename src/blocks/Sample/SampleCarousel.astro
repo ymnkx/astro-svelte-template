@@ -1,25 +1,83 @@
 ---
-import CarouselSwiperVisible from '@/components/CarouselSwiper/CarouselSwiperVisible.svelte';
-import CarouselSwiperResponsive from '@/components/CarouselSwiper/CarouselSwiperResponsive.svelte';
-import CarouselSwiperCore from '@/components/CarouselSwiper/CarouselSwiperCore.svelte';
-import CarouselSwiperSolo from '@/components/CarouselSwiper/CarouselSwiperSolo.svelte';
-import CarouselSwiperAstro from '@/components/CarouselSwiper/CarouselSwiperAstro.astro';
+import CarouselMinimum from '@/components/CarouselSwiper/CarouselMinimum.svelte';
+import CarouselCustom from '@/components/CarouselSwiper/CarouselCustom.svelte';
+import CarouselPerViewAuto from '@/components/CarouselSwiper/CarouselPerViewAuto.svelte';
 ---
 
 <div class="sample-carousel" id="carousel">
   <div class="sample-carousel_inner">
     <h2>Carousel</h2>
-    <h3>Solo</h3>
-    <CarouselSwiperSolo client:load />
-    <h3>Respoinsive</h3>
-    <CarouselSwiperResponsive client:load />
-    <h3>Loop + CenteredSlides + UI</h3>
-    <CarouselSwiperCore client:load />
-    <h3>Overflow Visible</h3>
-    <CarouselSwiperVisible client:load />
-    <h3>Astro Component</h3>
-    <p>AstroコンポーネントならAstroのImageコンポーネントが使用可能。</p>
-    <CarouselSwiperAstro />
+    <h3>Minimum1</h3>
+    <CarouselMinimum
+      id="js-swiper-min-1"
+      props={{
+        loop: true,
+        centeredSlides: false,
+        spaceBetween: 10,
+        slidesPerView: 1,
+        pagination: true,
+        breakpoints: {
+          640: {
+            centeredSlides: true,
+            slidesPerView: 5,
+          },
+        },
+      }}
+      client:load
+    />
+    <h3>Minimum2</h3>
+    <p>loopとcenterdSlidesがtrueの場合、slidesPerViewが3以下だと、スライド時にpaginationに表示不具合が出る。</p>
+    <CarouselMinimum
+      id="js-swiper-min-2"
+      props={{
+        loop: true,
+        centeredSlides: true,
+        spaceBetween: 10,
+        slidesPerView: 3,
+        pagination: true,
+        navigation: true,
+      }}
+      client:load
+    />
+    <h3>Custom</h3>
+    <p>
+      オリジナルのpaginationとnavigationを使用。slidesPerViewが3以下対応になる。<br
+      />swiperの領域外を表示するために、injectStylesを使用。表示されるスライド数は限られる。
+    </p>
+    <CarouselCustom
+      id="js-swiper-custom"
+      props={{
+        loop: true,
+        centeredSlides: true,
+        spaceBetween: 10,
+        slidesPerView: 3,
+        pagination: false,
+        navigation: false,
+        injectStyles: [
+          `
+          .swiper {
+            overflow: visible;
+          }
+      `,
+        ],
+      }}
+      client:load
+    />
+    <h3>slidesPerView: 'auto'</h3>
+    <p>中身はMinimum1と同じ。レイアウトのサンプルとして。</p>
+    <div class="sample-carousel_full">
+      <CarouselPerViewAuto
+        id="js-swiper-min-auto-full"
+        props={{
+          loop: true,
+          centeredSlides: true,
+          spaceBetween: 10,
+          slidesPerView: 'auto',
+          pagination: true,
+        }}
+        client:load
+      />
+    </div>
   </div>
 </div>
 
@@ -33,9 +91,12 @@ import CarouselSwiperAstro from '@/components/CarouselSwiper/CarouselSwiperAstro
     display: flex;
     flex-direction: column;
     gap: 1lh;
-    align-items: center;
-    width: 100%;
     max-width: var(--width-max);
     margin-inline: auto;
+  }
+
+  .sample-carousel_full {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
   }
 </style>

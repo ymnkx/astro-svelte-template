@@ -1,7 +1,7 @@
 <script lang="ts">
   import Button from '../Button/Button.svelte';
   import Modal from './Modal.svelte';
-  let showModal = false;
+  let showModal = $state(false);
 </script>
 
 <Button onclick={() => (showModal = true)} label={`Open Modal`} />
