@@ -10,5 +10,5 @@
       "@layouts/*": ["src/layouts/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "docs/**/*"]
 }

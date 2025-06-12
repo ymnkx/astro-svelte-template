@@ -1,6 +1,5 @@
-import { Meta, Primary, Controls } from '@storybook/blocks';
+import { Meta, Primary, Controls, IconGallery, IconItem } from '@storybook/addon-docs/blocks';
 import * as IconStories from './Icon.stories.ts';
-import Icon from './Icon.svelte';
 
 <Meta of={IconStories} />
 
@@ -9,8 +8,3 @@ import Icon from './Icon.svelte';
 <Primary />
 
 <Controls />
-
-# Iconography
-
-Storybook の [&lt;IconGallery&gt;](https://storybook.js.org/docs/api/doc-blocks/doc-block-icongallery) を使用してアイコン一覧を表示したいが、Svelte コンポーネントの表示がエラーになる。<br />
-[公式のドキュメント](https://storybook.js.org/docs/configure/integration/frameworks-feature-support)を見ると対応済みなのだが、解決できず。追って調査する。

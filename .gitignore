@@ -23,3 +23,4 @@ pnpm-debug.log*
 *storybook.log
 
 convert/
+storybook-static
