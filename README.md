@@ -33,4 +33,4 @@ AstroをベースにしたWebサイト制作用の開発環境です。コンポ
 | `npm run preview`          | ビルドしたデータをプレビュー                                   |
 | `npm run delivery`         | ファイル納品用のデータを `./build/` に生成（ファイル一覧つき） |
 | `npm run svgsprite`        | svgスプライトを生成（詳しくはIcon管理を参照）                  |
-| `npm run style-dictionary` | デザイントークンファイルから `_variables.scss` ファイルを生成  |
+| `npm run style-dictionary` | デザイントークンのJSONファイルから `scss` ファイルを生成       |
