@@ -1,5 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
-import color from '/tokens/Color-Primitive.json';
+import PrimitiveColors from '/tokens/figma/Color-Primitive-variables.json';
 
 <Meta title="Desing_Tokens/Colors" />
 
@@ -7,13 +7,21 @@ import color from '/tokens/Color-Primitive.json';
 
 <ColorPalette>
   <ColorItem
-    title="color.grayscale"
+    title="gray"
     subtitle="Some of the grays"
     colors={{
-      0: color.color.gray[0].value,
-      10: color.color.gray[10].value,
-      50: color.color.gray[50].value,
-      100: color.color.gray[100].value,
+      0: PrimitiveColors.color.gray[0].value,
+      100: PrimitiveColors.color.gray[100].value,
+      500: PrimitiveColors.color.gray[500].value,
+      700: PrimitiveColors.color.gray[700].value,
+      900: PrimitiveColors.color.gray[900].value,
+      1000: PrimitiveColors.color.gray[1000].value,
+    }}
+  />
+  <ColorItem
+    title="green"
+    colors={{
+      100: PrimitiveColors.color.green[100].value,
     }}
   />
 </ColorPalette>

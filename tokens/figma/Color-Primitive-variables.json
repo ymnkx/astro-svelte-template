@@ -1,0 +1,57 @@
+{
+  "color": {
+    "gray": {
+      "0": {
+        "type": "color",
+        "scopes": [
+          "all_scopes"
+        ],
+        "value": "#000000"
+      },
+      "100": {
+        "type": "color",
+        "scopes": [
+          "all_scopes"
+        ],
+        "value": "#1a1a1a"
+      },
+      "500": {
+        "type": "color",
+        "scopes": [
+          "all_scopes"
+        ],
+        "value": "#aaaaaa"
+      },
+      "700": {
+        "type": "color",
+        "scopes": [
+          "all_scopes"
+        ],
+        "value": "#dddddd"
+      },
+      "900": {
+        "type": "color",
+        "scopes": [
+          "all_scopes"
+        ],
+        "value": "#f9f9f9"
+      },
+      "1000": {
+        "type": "color",
+        "scopes": [
+          "all_scopes"
+        ],
+        "value": "#ffffff"
+      }
+    },
+    "green": {
+      "100": {
+        "type": "color",
+        "scopes": [
+          "all_scopes"
+        ],
+        "value": "#9acd32"
+      }
+    }
+  }
+}
