@@ -21,10 +21,7 @@
     "style-dictionary:base": "style-dictionary build --config ./sd.config.base.js",
     "style-dictionary:composite": "style-dictionary build --config ./sd.config.composite.js --verbose",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "style-dictionary": "npm run style-dictionary:base && npm run style-dictionary:composite",
-    "style-dictionary:base": "style-dictionary build --config ./sd.config.base.js",
-    "style-dictionary:composite": "style-dictionary build --config ./sd.config.composite.js --verbose"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.3",

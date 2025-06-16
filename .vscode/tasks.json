@@ -7,6 +7,13 @@
       "problemMatcher": [],
       "label": "npm: dev",
       "detail": "astro dev"
+    },
+    {
+      "type": "npm",
+      "script": "storybook",
+      "problemMatcher": [],
+      "label": "npm: storybook",
+      "detail": "storybook dev -p 6006"
     }
   ]
 }
