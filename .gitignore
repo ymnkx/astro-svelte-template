@@ -20,7 +20,5 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-*storybook.log
 
 convert/
-storybook-static
