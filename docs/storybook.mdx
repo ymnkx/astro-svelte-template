@@ -1,0 +1,30 @@
+## Storybook
+
+Svelte コンポーネントとDesign TokensをStorybookで管理します。Storybook は以下のコマンドから立ち上げます。
+
+```bash
+npm run storybook
+```
+
+### ステータス
+
+いったんStorybookを導入したというステータスです。まだ検討事項が多く、これからアップデートする予定です。
+
+### コンポーネント
+
+Storybookにコンポーネントを登録するためには、ストーリーファイル（`***.stories.ts`）が必要です。コンポーネントごとに作成します。<br/>
+以下のコンポーネントを登録しており、今後も追加していく予定です。
+
+- Button
+- Icon
+- Accordion
+- Tabs (WIP)
+
+コンポーネントはそのまま使うこともできますが、プロジェクトごとにカスタムすることを前提にしてます。<br/>
+propsやslotで値を設定して汎用的に使えるものも、ページ固有のものもあります。<br/>
+[Headless UI](https://headlessui.com/) のように、デザインは自由に変更できるように設計したいが、Astro + Svelteでは実現できることが限定されます。
+
+### Design Tokens
+
+全体のルールとあわせ、Storybookでの閲覧方法を検討中です。<br/>
+jsonファイルから読み込めることは確認できましたが、実際に使用するCSS変数への変換やFigmaとの連携までは設定していません。
