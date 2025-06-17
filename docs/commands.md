@@ -1,0 +1,11 @@
+## Commands
+
+| Command                    | Action                                                                    |
+| :------------------------- | :------------------------------------------------------------------------ |
+| `npm install`              | インストール                                                              |
+| `npm run dev`              | 開発スタート（サーバーは `localhost:3000`）                               |
+| `npm run build`            | `./dist/` にビルド                                                        |
+| `npm run preview`          | ビルドしたデータをプレビュー                                              |
+| `npm run delivery`         | ファイル納品用のデータを `./build/` に生成（ファイル一覧つき）            |
+| `npm run svgsprite`        | svgスプライトを生成（Icon管理を参照）                                     |
+| `npm run style-dictionary` | デザイントークンファイルから `scss` ファイルを生成（Design Tokensを参照） |
