@@ -4,21 +4,19 @@
   import { matchMediaController } from '@/scripts/matchMediaController';
   import { ScrollController } from '@/scripts/scrollController';
   import { onMount } from 'svelte';
-
-  export let selectedUrl = '';
-
-  const _scrollController = ScrollController();
-
-  const breakpoint = '40em';
-
   import linkList from '@/data/links.ts';
 
-  let isOpen = false;
-  let isDisabled = true;
+  const _scrollController = ScrollController();
+  const breakpoint = '40em';
 
-  const disable = (flag) => {
-    isDisabled = flag;
+  let { selectedUrl = '' } = $props();
+  let isOpen = $state(false);
+  let isDisabled = $state(undefined);
+
+  const change = (flag) => {
+    // console.log('change', flag);
     isOpen = flag;
+    isDisabled = flag;
   };
 
   const close = () => {
@@ -48,7 +46,7 @@
       matchMediaController().init({
         condition: '(min-width: ' + breakpoint + ')',
         callback: (match) => {
-          disable(match);
+          change(match);
         },
       });
     }
@@ -86,23 +84,25 @@
         class="global-navigation_bg"
         transition:fade={{ delay: 0, duration: 300, easing: quintOut }}
         aria-hidden={!isOpen}
-        on:click={close}
+        onclick={close}
       ></div>
     {/if}
-    <button
-      class="global-navigation_control"
-      type="button"
-      aria-label="menu"
-      aria-expanded={isOpen}
-      data-role="control"
-      on:click={btnClick}
-    >
-      {#if isOpen}
-        <span>close</span>
-      {:else}
-        <span>menu</span>
-      {/if}
-    </button>
+    {#if isDisabled !== undefined}
+      <button
+        class="global-navigation_control"
+        type="button"
+        aria-label="menu"
+        aria-expanded={isOpen}
+        data-role="control"
+        onclick={btnClick}
+      >
+        {#if isOpen}
+          <span>close</span>
+        {:else}
+          <span>menu</span>
+        {/if}
+      </button>
+    {/if}
     {#if isOpen}
       <ul
         class="global-navigation_sp"
@@ -123,7 +123,7 @@
         type="button"
         data-role="trap"
         aria-label="global navigation trap"
-        on:focus={returnFocus}
+        onfocus={returnFocus}
       ></button>
     {/if}
   {/if}
@@ -158,9 +158,13 @@
 
   .global-navigation_pc {
     position: relative;
-    display: flex;
+    display: none;
     gap: 1rem;
     align-items: center;
+
+    .global-navigation.-disabled & {
+      display: flex;
+    }
   }
 
   .global-navigation_sp {

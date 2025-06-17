@@ -7,7 +7,7 @@ import BaseHeader from './BaseHeader.astro';
   <div class="common-layout_header">
     <BaseHeader />
   </div>
-  <main class="common-layout_main">
+  <main class="common-layout_main" id="top">
     <slot />
   </main>
   <div class="common-layout_footer">
@@ -34,6 +34,7 @@ import BaseHeader from './BaseHeader.astro';
 
   .common-layout_main {
     flex: 1;
+    overflow: hidden auto;
   }
 
   .common-layout_footer {

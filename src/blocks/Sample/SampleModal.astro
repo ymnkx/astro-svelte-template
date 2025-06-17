@@ -1,0 +1,30 @@
+---
+import ModalSample1 from '@/components/Modal/ModalSample1.svelte';
+import ModalSampleSwiper from '@/components/Modal/ModalSampleSwiper.svelte';
+---
+
+<div class="sample-Modal" id="modal">
+  <div class="sample-Modal_inner">
+    <h2>Modal</h2>
+
+    <ModalSample1 client:load />
+    <ModalSampleSwiper client:load />
+  </div>
+</div>
+
+<style lang="scss">
+  .sample-Modal {
+    padding-block: var(--space-block);
+    padding-inline: var(--space-inline);
+  }
+
+  .sample-Modal_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1lh;
+    align-items: center;
+    width: 100%;
+    max-width: var(--width-max);
+    margin-inline: auto;
+  }
+</style>

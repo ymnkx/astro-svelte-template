@@ -1,0 +1,81 @@
+{
+  "rounded": {
+    "sm": {
+      "type": "float",
+      "scopes": [
+        "corner_radius"
+      ],
+      "value": 8
+    },
+    "md": {
+      "type": "float",
+      "scopes": [
+        "corner_radius"
+      ],
+      "value": 16
+    },
+    "lg": {
+      "type": "float",
+      "scopes": [
+        "corner_radius"
+      ],
+      "value": 24
+    }
+  },
+  "spacing": {
+    "sm": {
+      "type": "float",
+      "scopes": [
+        "width_height",
+        "gap",
+        "paragraph_spacing"
+      ],
+      "value": 8
+    },
+    "md": {
+      "type": "float",
+      "scopes": [
+        "width_height",
+        "gap",
+        "paragraph_spacing"
+      ],
+      "value": 16
+    },
+    "xs": {
+      "type": "float",
+      "scopes": [
+        "width_height",
+        "gap",
+        "paragraph_spacing"
+      ],
+      "value": 4
+    },
+    "lg": {
+      "type": "float",
+      "scopes": [
+        "width_height",
+        "gap",
+        "paragraph_spacing"
+      ],
+      "value": 24
+    },
+    "xl": {
+      "type": "float",
+      "scopes": [
+        "width_height",
+        "gap",
+        "paragraph_spacing"
+      ],
+      "value": 40
+    },
+    "2xl": {
+      "type": "float",
+      "scopes": [
+        "width_height",
+        "gap",
+        "paragraph_spacing"
+      ],
+      "value": 80
+    }
+  }
+}

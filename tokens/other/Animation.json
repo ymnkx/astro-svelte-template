@@ -1,0 +1,10 @@
+{
+  "animation": {
+    "duration": {
+      "value": "0.25s"
+    },
+    "easing": {
+      "value": "cubic-bezier(0.19, 1, 0.22, 1)"
+    }
+  }
+}

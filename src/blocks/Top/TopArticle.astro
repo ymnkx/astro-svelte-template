@@ -1,27 +1,21 @@
 ---
 import ArticleLayout from '@/components/Article/ArticleLayout.astro';
 
-import Intro from '@/blocks/Top/Sections/intro.mdx';
-import Architecture from '@/blocks/Top/Sections/architecture.mdx';
-import Commands from '@/blocks/Top/Sections/commands.mdx';
-import Css from '@/blocks/Top/Sections/css.mdx';
-import Svelte from '@/blocks/Top/Sections/svelte.mdx';
-import DesingTokens from '@/blocks/Top/Sections/design-tokens.mdx';
-import Image from '@/blocks/Top/Sections/image.mdx';
-import Icons from '@/blocks/Top/Sections/icons.mdx';
-import Settings from '@/blocks/Top/Sections/settings.mdx';
-import Storybook from '@/blocks/Top/Sections/storybook.mdx';
+import Intro from '/docs/intro.md';
+import Architecture from '/docs/architecture.md';
+import Commands from '/docs/commands.md';
+import Css from '/docs/css.md';
+import DesingTokens from '/docs/design-tokens.md';
+import Image from '/docs/image.md';
+import Icons from '/docs/icons.md';
 ---
 
-<ArticleLayout title="Astro Svelte Storybook" description="">
+<ArticleLayout title="Astro-Svelte-Template" description="">
   <Intro />
   <Architecture />
   <Commands />
   <Css />
   <DesingTokens />
-  <Svelte />
-  <Storybook />
   <Image />
   <Icons />
-  <Settings />
 </ArticleLayout>

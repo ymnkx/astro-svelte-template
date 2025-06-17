@@ -1,0 +1,39 @@
+{
+  "color": {
+    "text": {
+      "type": "color",
+      "scopes": [
+        "all_scopes"
+      ],
+      "value": "{color.gray.100}"
+    },
+    "primary": {
+      "type": "color",
+      "scopes": [
+        "all_scopes"
+      ],
+      "value": "{color.green.100}"
+    },
+    "background-white": {
+      "type": "color",
+      "scopes": [
+        "all_scopes"
+      ],
+      "value": "{color.gray.1000}"
+    },
+    "background-base": {
+      "type": "color",
+      "scopes": [
+        "all_scopes"
+      ],
+      "value": "{color.gray.900}"
+    },
+    "border": {
+      "type": "color",
+      "scopes": [
+        "all_scopes"
+      ],
+      "value": "{color.gray.500}"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "z-index": {
+    "navi": {
+      "value": 30
+    },
+    "sample": {
+      "value": 10
+    }
+  }
+}

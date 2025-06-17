@@ -3,13 +3,13 @@
   import SvelteValue from './SvelteValue.svelte';
 
   let colors = ['red', 'green', 'blue'];
-  $: selected = '';
+  let selected = $state('');
 </script>
 
 <SvelteStack>
   <div class="colors">
     {#each colors as color, i}
-      <button type="button" style="background-color: {color}" class="color" on:click={() => (selected = color)}>
+      <button type="button" style="background-color: {color}" class="color" onclick={() => (selected = color)}>
         {i + 1}
       </button>
     {/each}

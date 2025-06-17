@@ -1,8 +1,5 @@
 <script lang="ts">
-  export let type: string = 'text';
-  export let value: string = '';
-  export let min: number = 0;
-  export let max: number = 0;
+  let { type = 'text', value = $bindable(''), min = 0, max = 0 } = $props();
 </script>
 
 {#if type === 'text'}

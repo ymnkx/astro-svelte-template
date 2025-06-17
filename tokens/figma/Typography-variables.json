@@ -1,0 +1,111 @@
+{
+  "typography": {
+    "font-size": {
+      "30": {
+        "type": "float",
+        "scopes": ["font_size"],
+        "value": 12
+      },
+      "50": {
+        "type": "float",
+        "scopes": ["font_size"],
+        "value": 14
+      },
+      "100": {
+        "type": "float",
+        "scopes": ["font_size"],
+        "value": 16
+      },
+      "300": {
+        "type": "float",
+        "scopes": ["font_size"],
+        "value": 24
+      },
+      "500": {
+        "type": "float",
+        "scopes": ["font_size"],
+        "value": 36
+      }
+    },
+    "font-weight": {
+      "midium": {
+        "type": "float",
+        "scopes": ["font_weight"],
+        "value": 500
+      },
+      "extra-bold": {
+        "type": "float",
+        "scopes": ["font_weight"],
+        "value": 800
+      },
+      "bold": {
+        "type": "float",
+        "scopes": ["font_weight"],
+        "value": 700
+      },
+      "semi-bold": {
+        "type": "float",
+        "scopes": ["font_weight"],
+        "value": 600
+      },
+      "black": {
+        "type": "float",
+        "scopes": ["font_weight"],
+        "value": 900
+      },
+      "reqular": {
+        "type": "float",
+        "scopes": ["font_weight"],
+        "value": 400
+      }
+    },
+    "font-family": {
+      "base": {
+        "type": "string",
+        "scopes": ["font_family"],
+        "value": "Hiragino Kaku Gothic ProN"
+      },
+      "roboto": {
+        "type": "string",
+        "scopes": ["font_family"],
+        "value": "Roboto"
+      }
+    },
+    "line-height": {
+      "100": {
+        "type": "float",
+        "scopes": [],
+        "value": 1.5
+      },
+      "300": {
+        "type": "float",
+        "scopes": [],
+        "value": 1.75
+      },
+      "trim": {
+        "type": "float",
+        "scopes": [],
+        "value": 1
+      }
+    },
+    "body": {
+      "default": {
+        "type": "float",
+        "scopes": ["font_size"],
+        "value": "{typography.font-size.100}"
+      }
+    },
+    "letter-spacing": {
+      "small": {
+        "type": "string",
+        "scopes": [],
+        "value": "5%"
+      },
+      "midium": {
+        "type": "string",
+        "scopes": [],
+        "value": "10%"
+      }
+    }
+  }
+}

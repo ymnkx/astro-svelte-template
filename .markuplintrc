@@ -30,6 +30,13 @@
           }
         }
       }
+    },
+    {
+      "selector": "head",
+      "rules": {
+        "permitted-contents": false,
+        "required-element": false
+      }
     }
   ]
 }

@@ -84,11 +84,11 @@
 }
 
 :where(hr) {
+  block-size: 0;
   overflow: visible;
   color: inherit;
   border: none;
   border-block-start: 1px solid;
-  block-size: 0;
 }
 
 :where(:focus-visible) {
@@ -97,9 +97,9 @@
   box-shadow: 0 0 0 5px Canvas;
 }
 
-:where(:focus-visible, :target) {
-  scroll-margin-block: 8vh;
-}
+// :where(:focus-visible, :target) {
+//   scroll-margin-block: 8vh;
+// }
 
 :where(.visually-hidden:not(:focus-within, :active)) {
   position: absolute !important;

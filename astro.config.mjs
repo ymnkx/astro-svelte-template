@@ -1,11 +1,6 @@
 import { defineConfig } from 'astro/config';
-import imports from 'vituum/plugins/imports.js';
-import { fileURLToPath } from 'url';
-import path, { dirname } from 'path';
 import d from './src/data/project.ts';
 const { siteUrl, publicDir, baseUrl } = d;
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 import mdx from '@astrojs/mdx';
 import svelte from '@astrojs/svelte';
 
@@ -26,34 +21,19 @@ export default defineConfig({
     inlineStylesheets: 'never', // css外部ファイル化のため
   },
   vite: {
-    plugins: [
-      imports({
-        filenamePattern: {
-          '+.css': [],
-          '+.scss': 'src/styles',
-          '+.js': [],
-          '+.ts': 'src/scripts',
-        },
-      }),
-    ],
-    resolve: {
-      alias: {
-        '@/': `${path.resolve(__dirname, 'src')}/`,
-        '@scss/': `${path.resolve(__dirname, 'src')}/styles/`,
-      },
-    },
     build: {
       assetsInlineLimit: 0,
       // js外部ファイル化のため
       rollupOptions: {
         output: {
           entryFileNames: () => '_assets/js/[name].[hash].js',
-          assetFileNames: ({ name }) =>
-            name.endsWith('.css')
+          assetFileNames: (assetInfo) => {
+            return assetInfo.names[0].endsWith('.css')
               ? '_assets/css/[name].[hash][extname]'
-              : name.endsWith('.js')
+              : assetInfo.names[0].endsWith('.js')
                 ? '_assets/js/[name].[hash][extname]'
-                : '_assets/image/[name].[hash][extname]',
+                : '_assets/image/[name].[hash][extname]';
+          },
         },
       },
     },

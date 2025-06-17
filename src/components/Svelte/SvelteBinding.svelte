@@ -3,7 +3,7 @@
   import SvelteStack from './SvelteStack.svelte';
   import SvelteValue from './SvelteValue.svelte';
 
-  let name = 'value';
+  let name = $state('value');
 </script>
 
 <SvelteStack>
