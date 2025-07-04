@@ -13,7 +13,13 @@ export default defineConfig({
   trailingSlash: 'always',
   outDir: `./dist${baseUrl}`,
   publicDir: publicDir,
-  integrations: [mdx(), svelte()],
+  integrations: [
+    mdx(),
+    svelte(),
+    webpConverter({
+      quality: 75,
+    }),
+  ],
   server: {
     host: true,
     port: 3000,
@@ -23,11 +29,6 @@ export default defineConfig({
     inlineStylesheets: 'never', // css外部ファイル化のため
   },
   vite: {
-    plugins: [
-      webpConverter({
-        quality: 75,
-      }),
-    ],
     resolve: {
       alias: {
         '@/image': fileURLToPath(new URL('./src/image', import.meta.url)),

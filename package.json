@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/updateHtmlWebp.js && npm run format",
+    "build": "astro build && npm run format",
     "format": "prettier --write 'dist/**/*.html'",
     "preview": "astro preview",
     "lint": "eslint src/ --ext .astro,.ts",
