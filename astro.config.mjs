@@ -4,7 +4,7 @@ import d from './src/data/project.ts';
 const { siteUrl, publicDir, baseUrl } = d;
 import mdx from '@astrojs/mdx';
 import svelte from '@astrojs/svelte';
-import { webpConverter } from './plugins/vite-plugin-webp-converter.ts';
+import { webpConverter } from './plugins/webp-converter.ts';
 
 // https://astro.build/config
 export default defineConfig({

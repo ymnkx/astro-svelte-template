@@ -22,7 +22,7 @@ export const webpConverter = (options: WebpConverterOptions = {}): AstroIntegrat
           vite: {
             plugins: [
               {
-                name: 'vite-plugin-webp-converter-images',
+                name: 'webp-converter',
                 apply: 'build',
                 generateBundle: async (options, bundle) => {
                   console.log('Starting WebP conversion for src images...');
