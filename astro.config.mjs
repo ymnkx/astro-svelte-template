@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import d from './src/data/project.ts';
 const { siteUrl, publicDir, baseUrl } = d;
@@ -21,6 +22,11 @@ export default defineConfig({
     inlineStylesheets: 'never', // css外部ファイル化のため
   },
   vite: {
+    resolve: {
+      alias: {
+        '@/image': fileURLToPath(new URL('./src/image', import.meta.url)),
+      },
+    },
     build: {
       assetsInlineLimit: 0,
       // js外部ファイル化のため

@@ -1,25 +1,33 @@
 ## 画像
 
-Astro では、コンテンツ内に表示する画像が2種類あります。
+Astro と Svelte のコンポーネントで画像を使用するにあたり、デフォルトの方法は以下とします。
 
-|                    | src画像                             | public画像            |
-| ------------------ | ----------------------------------- | --------------------- |
-| タグ               | Imageコンポーネント（astro:assets） | imgタグ               |
-| 最適化             | される                              | されない              |
-| webp               | 自動で変換                          | 自分で変換            |
-| サイズ指定         | 自動                                | 手動                  |
-| 画像名             | Astroがhash付与                     | 自分で命名            |
-| ファイルを置く場所 | /src/image/                         | /public/assets/image/ |
+- webp変換は手動で行う。
+- srcフォルダにある画像をimportする（画像コンポーネントを用意してある）
+  - src、width、heightを使用する。
+  - Build時にハッシュ化。
+- 状況に合わせて、例外としてstro画像や@sveltejs/enhanced-img、Public画像を使用する。
 
-### 方針
+### 画像コンポーネント
 
-基本的にどちらを使用しても良いのですが、Svelte コンポーネントからは public画像しか使えません。
-もし、Svelte コンポーネントを多用する場合、管理の観点からpublic画像のみの使用を検討してください。
+- AstroでもSvelteでも使用できるSvelte製の「画像コンポーネント」を用意してます。
 
-### public画像のwebp対応
+```
+---
+import SampleSrcImage from '@/image/sample.webp';
+import SampleSrcImageSp from '@/image/sample_sp.webp';
+import SampleSrcImagePc from '@/image/sample_pc.webp';
+---
+
+<ImageWrapper img={SampleSrcImage} alt="画像のせつめい" />
+<PictureWrapper img={{ sp: SampleSrcImageSp, md: SampleSrcImagePc }} alt="画像のせつめい" />
+```
+
+### webp変換
 
 コマンドを使用して、jpg画像やpng画像をwebp画像に変換します。
 変換コマンドは `/scripts/convertWebp.js` に記述しています。カスタムしたい場合はこちらを編集してください。
+（Viteプラグイン化を検討中です）
 
 ```bash
 npm run convert-webp
