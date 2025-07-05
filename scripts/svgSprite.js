@@ -4,8 +4,8 @@ import SVGSpriter from 'svg-sprite';
 import { globSync } from 'glob';
 
 const directory = {
-  src: 'src/icons',
-  dest: 'public/assets/svg',
+  src: 'src/icons/materials',
+  dest: 'src/icons',
 };
 
 const config = {
