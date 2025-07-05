@@ -5,6 +5,7 @@ const { siteUrl, publicDir, baseUrl } = d;
 import mdx from '@astrojs/mdx';
 import svelte from '@astrojs/svelte';
 import { webpConverter } from './plugins/webp-converter.ts';
+import { svgSprite } from './plugins/svg-sprite.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,6 +30,7 @@ export default defineConfig({
     inlineStylesheets: 'never', // css外部ファイル化のため
   },
   vite: {
+    plugins: [svgSprite()],
     resolve: {
       alias: {
         '@/image': fileURLToPath(new URL('./src/image', import.meta.url)),

@@ -13,7 +13,6 @@
     "delivery:format": "prettier --write 'dist/**/*.html'",
     "delivery:copy": "node 'scripts/copyDirectory.js'",
     "delivery:list": "node 'scripts/makeFileList.js'",
-    "svgsprite": "node 'scripts/svgSprite.js'",
     "preinstall": "node scripts/initialSetting.js",
     "check-ngword": "node 'scripts/checkNgWord.js'",
     "style-dictionary": "npm run style-dictionary:base && npm run style-dictionary:composite",
