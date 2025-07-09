@@ -4,6 +4,8 @@ import d from './src/data/project.ts';
 const { siteUrl, publicDir, baseUrl } = d;
 import mdx from '@astrojs/mdx';
 import svelte from '@astrojs/svelte';
+import { webpConverter } from './plugins/webp-converter.ts';
+import { svgSprite } from './plugins/svg-sprite.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,7 +14,13 @@ export default defineConfig({
   trailingSlash: 'always',
   outDir: `./dist${baseUrl}`,
   publicDir: publicDir,
-  integrations: [mdx(), svelte()],
+  integrations: [
+    mdx(),
+    svelte(),
+    webpConverter({
+      quality: 75,
+    }),
+  ],
   server: {
     host: true,
     port: 3000,
@@ -22,9 +30,11 @@ export default defineConfig({
     inlineStylesheets: 'never', // css外部ファイル化のため
   },
   vite: {
+    plugins: [svgSprite()],
     resolve: {
       alias: {
         '@/image': fileURLToPath(new URL('./src/image', import.meta.url)),
+        '@/icons': fileURLToPath(new URL('./src/icons', import.meta.url)),
       },
     },
     build: {

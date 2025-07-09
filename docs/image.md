@@ -2,11 +2,11 @@
 
 Astro と Svelte のコンポーネントで画像を使用するにあたり、デフォルトの方法は以下とします。
 
-- webp変換は手動で行う。
-- srcフォルダにある画像をimportする（画像コンポーネントを用意してある）
+- srcフォルダにある画像をimportする。（画像コンポーネントを用意してある）
   - src、width、heightを使用する。
-  - Build時にハッシュ化。
-- 状況に合わせて、例外としてstro画像や@sveltejs/enhanced-img、Public画像を使用する。
+  - Build時にハッシュ化し、Astroインテグレーションで自動でwebp化。
+- publicフォルダの画像は例外的に使用する。
+  - その場合、全て手動で設定する。
 
 ### 画像コンポーネント
 
@@ -25,15 +25,5 @@ import SampleSrcImagePc from '@/image/sample_pc.webp';
 
 ### webp変換
 
-コマンドを使用して、jpg画像やpng画像をwebp画像に変換します。
-変換コマンドは `/scripts/convertWebp.js` に記述しています。カスタムしたい場合はこちらを編集してください。
-（Viteプラグイン化を検討中です）
-
-```bash
-npm run convert-webp
-```
-
-| 名前   | ディレクトリ     | ファイル形式 |
-| ------ | ---------------- | ------------ |
-| 変換前 | /convert/input/  | jpg, png     |
-| 変換後 | /convert/output/ | webp         |
+Astroインテグレーションを使用して、ビルド時に自動でwebp化します。
+インテグレーションは、 `/plugins/webp-converter.ts` に記述しています。カスタムしたい場合はこちらを編集してください。

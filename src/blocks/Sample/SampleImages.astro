@@ -1,4 +1,5 @@
 ---
+import OrangeImage from '@/image/orange.png';
 import SampleSrcImage from '@/image/sample.webp';
 import SampleSrcImageSp from '@/image/sample_sp.webp';
 import SampleSrcImagePc from '@/image/sample_pc.webp';
@@ -10,8 +11,11 @@ import PictureWrapper from '@/components/Image/PictureWrapper.svelte';
   <div class="sample-images_inner">
     <h2>Svelte Images</h2>
     <h3>ImageWrapper</h3>
+    <ImageWrapper img={OrangeImage} alt="オレンジ" />
     <ImageWrapper img={SampleSrcImage} alt="画像のせつめい" />
     <PictureWrapper img={{ sp: SampleSrcImageSp, md: SampleSrcImagePc }} alt="画像のせつめい" />
+    <h3>Public Image</h3>
+    <img src="/assets/image/blue.png" alt="青" width="200" height="200" />
   </div>
 </div>
 
@@ -47,13 +51,5 @@ import PictureWrapper from '@/components/Image/PictureWrapper.svelte';
         min-width: 0;
       }
     }
-  }
-
-  .box {
-    width: rem(400);
-    aspect-ratio: 1 / 1;
-    background-image: url('@/image/sample.png');
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 </style>
