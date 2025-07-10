@@ -1,0 +1,113 @@
+# Astro & Svelte コーディングルール
+
+## Astro コンポーネント (.astro)
+
+### 構造
+
+```astro
+---
+// TypeScript: プロパティ定義、インポート、ロジック
+interface Props {
+  title: string;
+  size?: 'small' | 'medium' | 'large';
+}
+const { title, size = 'medium' } = Astro.props;
+---
+
+<!-- HTML: セマンティックなマークアップ -->
+<div class="component-name">
+  <h2>{title}</h2>
+  <slot />
+</div>
+
+<style lang="scss">
+  @use '@/styles/_develop/+.scss' as *;
+
+  .component-name {
+    // SCSS記述
+  }
+</style>
+```
+
+### ベストプラクティス
+
+- Props interfaceを必ず定義
+- デフォルト値はデストラクチャリングで設定
+- `lang="scss"`必須
+- セマンティックHTML推奨
+- `class`よりCSS変数活用
+
+## Svelte 5 コンポーネント (.svelte)
+
+### 構造
+
+```svelte
+<script lang="ts">
+  interface Props {
+    label: string;
+    primary?: boolean;
+    onclick?: () => void;
+  }
+
+  let { label, primary = false, onclick }: Props = $props();
+  let isActive = $state(false);
+  let computedClass = $derived(`btn ${primary ? '-primary' : '-secondary'}`);
+</script>
+
+{#if isActive}
+  <button class={computedClass} {onclick}>
+    {label}
+  </button>
+{/if}
+
+<style lang="scss">
+  @use '@/styles/_develop/+.scss' as *;
+
+  .btn {
+    // SCSS記述
+  }
+</style>
+```
+
+### Svelte 5 専用機能
+
+- `$props()`: プロパティ受け取り
+- `$state()`: リアクティブ状態
+- `$derived()`: 計算値
+- `$effect()`: 副作用
+- `$inspect()`: デバッグ用
+
+### ベストプラクティス
+
+- Props interfaceを必ず定義
+- `$state`は最小限に
+- `$derived`で計算値を最適化
+- イベントハンドラーは`on`プレフィックス
+- コンポーネント名はPascalCase
+
+## 共通ルール
+
+### ディレクトリ構成
+
+```
+src/components/
+├── ComponentName/
+│   ├── ComponentName.svelte    # メインコンポーネント
+│   ├── ComponentName.astro     # Astro版（必要時）
+│   └── ComponentName.stories.ts # Storybook（必要時）
+```
+
+### スタイル
+
+- SCSS必須
+- CSS変数でテーマ対応
+- デザイントークン活用
+- レスポンシブデザイン対応
+- BEM記法推奨
+
+### アクセシビリティ
+
+- セマンティックHTML
+- ARIA属性適切に設定
+- キーボードナビゲーション対応
+- スクリーンリーダー対応

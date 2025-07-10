@@ -1,0 +1,69 @@
+# 基本コーディングルール
+
+## プロジェクト概要
+
+- Astro + Svelte 5 + TypeScript構成
+- SCSS使用
+- Style Dictionaryでデザイントークン管理
+- ESLint, Prettier, Stylelintでコード品質管理
+
+## 基本原則
+
+### ファイル構成
+
+- `src/components/` - 再利用可能なコンポーネント（Svelte/Astro）
+- `src/blocks/` - ページ固有のブロック
+- `src/scripts/` - ユーティリティ関数
+- `src/styles/` - グローバルスタイル
+- `src/layouts/` - レイアウトコンポーネント
+
+### 命名規則
+
+- ファイル名: PascalCase（コンポーネント）、camelCase（script）
+- 変数・関数: camelCase
+- CSS class: kebab-case または BEM記法
+- コンポーネントディレクトリ: PascalCase
+
+### インポート
+
+- パスエイリアス使用推奨:
+  - `@/*` → `src/*`
+  - `@components/*` → `src/components/*`
+  - `@layouts/*` → `src/layouts/*`
+  - `~/*` → `public/*`
+
+### コードスタイル
+
+- 日本語コメント推奨
+- TypeScript必須（`any`禁止）
+- アロー関数優先
+- named export推奨
+- CSS変数活用
+- デザイントークン使用
+
+## アセット管理ルール
+
+### 画像
+
+- `/src/image/` に使用する画像を入れる
+- 画像コンポーネント（ `Image.svelte` ）を使用して配置する
+- ファイル名は分かりやすい命名を心がける
+- public フォルダの画像は例外的に使用する
+
+### アイコン
+
+- SVGスプライト方式を採用
+- `/src/icons/materials/` に素材SVGファイルを入れる
+- SVGスプライト `/arc/icons/icons.svg` を生成する
+- 生成はViteプラグインで自動的に行われる
+- Iconコンポーネント（ `Icon.svelte` ）を使用して配置する
+
+## 品質管理
+
+- ESLint: 必須チェック
+- Prettier: 自動フォーマット
+- Stylelint: SCSS品質管理
+- Markuplint: HTML品質管理
+  alwaysApply: true
+
+---
