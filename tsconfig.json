@@ -7,7 +7,8 @@
     "paths": {
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"]
+      "@layouts/*": ["src/layouts/*"],
+      "~/*": ["public/*"]
     }
   },
   "include": ["src/**/*", "docs/**/*"]

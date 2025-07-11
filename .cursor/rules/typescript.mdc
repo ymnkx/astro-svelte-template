@@ -1,0 +1,173 @@
+# TypeScript コーディングルール
+
+## 基本原則
+
+### 型定義
+
+- `any`型禁止
+- `unknown`を適切に使用
+- Union型でより厳密な型定義
+- 必要に応じてGeneric型活用
+
+### Interface vs Type
+
+```typescript
+// Interface（拡張可能）
+interface ComponentProps {
+  title: string;
+  size?: 'small' | 'medium' | 'large';
+}
+
+// Type（複雑な型定義）
+type EventHandler = (event: Event) => void;
+type ButtonVariant = 'primary' | 'secondary' | 'outline';
+```
+
+### 関数定義
+
+```typescript
+// アロー関数推奨
+export const getUserData = async (id: string): Promise<User> => {
+  // 実装
+};
+
+// 戻り値の型明示
+export const formatDate = (date: Date): string => {
+  return date.toISOString();
+};
+
+// オプション引数
+export const createButton = (
+  label: string,
+  options?: {
+    variant?: ButtonVariant;
+    disabled?: boolean;
+  },
+) => {
+  // 実装
+};
+```
+
+## ファイル別ルール
+
+### ユーティリティ関数 (`src/scripts/`)
+
+```typescript
+// 名前付きエクスポート推奨
+export const checkDevice = {
+  getIsIos: (): boolean => {
+    // 実装
+  },
+  getIsAndroid: (): boolean => {
+    // 実装
+  },
+};
+
+// または個別エクスポート
+export const getIsIos = (): boolean => {
+  // 実装
+};
+```
+
+### 型定義 (`src/types/`)
+
+```typescript
+// インターフェース定義
+export interface User {
+  readonly id: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+}
+
+// 定数の型定義
+export const BUTTON_SIZES = ['small', 'medium', 'large'] as const;
+export type ButtonSize = (typeof BUTTON_SIZES)[number];
+```
+
+### データ (`src/data/`)
+
+```typescript
+// 設定オブジェクト
+export const siteConfig = {
+  title: 'サイトタイトル',
+  description: 'サイト説明',
+  url: 'https://example.com',
+} as const;
+
+// 型推論を活用
+export type SiteConfig = typeof siteConfig;
+```
+
+## ベストプラクティス
+
+### エラーハンドリング
+
+```typescript
+// Result型パターン
+type Result<T, E = Error> = { success: true; data: T } | { success: false; error: E };
+
+export const fetchUserData = async (id: string): Promise<Result<User>> => {
+  try {
+    const user = await api.getUser(id);
+    return { success: true, data: user };
+  } catch (error) {
+    return { success: false, error: error as Error };
+  }
+};
+```
+
+### 型ガード
+
+```typescript
+export const isString = (value: unknown): value is string => {
+  return typeof value === 'string';
+};
+
+export const isValidEmail = (email: string): boolean => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+};
+```
+
+### 非同期処理
+
+```typescript
+// Promise型明示
+export const loadData = async (): Promise<ApiResponse> => {
+  const response = await fetch('/api/data');
+
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+  }
+
+  return response.json();
+};
+```
+
+## 禁止事項
+
+### アンチパターン
+
+```typescript
+// ❌ 避けるべき
+const data: any = getValue();
+let value; // 型推論できない
+function oldFunction() {} // アロー関数推奨
+
+// ✅ 推奨
+const data: User = getValue();
+let value: string | null = null;
+const newFunction = () => {};
+```
+
+### importスタイル
+
+```typescript
+// ✅ パスエイリアス使用
+import { Button } from '@components/Button/Button.svelte';
+import { formatDate } from '@/scripts/utils';
+
+// ❌ 相対パス（深い階層）
+import { Button } from '../../../components/Button/Button.svelte';
+```

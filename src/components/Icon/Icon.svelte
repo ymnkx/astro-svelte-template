@@ -1,10 +1,10 @@
 <script>
   let { name = 'check', size = '1.5rem' } = $props();
-  const baseUrl = import.meta.env.BASE_URL;
+  import icons from '@/icons/icons.svg?url';
 </script>
 
 <svg viewBox="0 0 24 24" class="icon" style="--this-size: {size}">
-  <use href={`${baseUrl}assets/svg/icons.svg#${name}`}></use>
+  <use href={icons + '#' + name}></use>
 </svg>
 
 <style>

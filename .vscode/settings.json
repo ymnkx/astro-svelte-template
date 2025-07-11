@@ -1,9 +1,9 @@
 {
   "path-autocomplete.pathMappings": {
-    "@": "${folder}/src",
-    "@components": "${folder}/src/components",
-    "@layout": "${folder}/src/layout",
-    "@scss": "${folder}/src/styles"
+    "@/*": ["src/*"],
+    "@components/*": ["src/components/*"],
+    "@layouts/*": ["src/layouts/*"],
+    "~/*": ["public/*"]
   },
   "scss.validate": false,
   "[scss]": {
