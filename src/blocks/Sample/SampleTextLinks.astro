@@ -1,0 +1,93 @@
+---
+import TextLink from '@/components/TextLink/TextLink.svelte';
+---
+
+<div class="sample-text-links" id="text-links">
+  <h2>Text Links</h2>
+  <div class="sample-text-links_content">
+    <div class="sample-text-links_group">
+      <h3>基本的なリンク</h3>
+      <div class="sample-text-links_items">
+        <TextLink text="基本のリンク" href="#" client:load />
+        <TextLink text="外部リンク（自動アイコン）" href="https://example.com" target="_blank" client:load />
+      </div>
+    </div>
+
+    <div class="sample-text-links_group">
+      <h3>アイコン付きリンク（左）</h3>
+      <div class="sample-text-links_items">
+        <TextLink text="チェックアイコン" href="#" iconName="check" client:load />
+        <TextLink text="コードアイコン" href="#" iconName="code-bracket" client:load />
+        <TextLink text="矢印アイコン" href="#" iconName="chevron-right" client:load />
+      </div>
+    </div>
+
+    <div class="sample-text-links_group">
+      <h3>アイコン付きリンク（右）</h3>
+      <div class="sample-text-links_items">
+        <TextLink text="チェックアイコン" href="#" iconName="check" iconPosition="right" client:load />
+        <TextLink text="コードアイコン" href="#" iconName="code-bracket" iconPosition="right" client:load />
+        <TextLink text="矢印アイコン" href="#" iconName="chevron-right" iconPosition="right" client:load />
+      </div>
+    </div>
+
+    <div class="sample-text-links_group">
+      <h3>外部リンク + アイコン</h3>
+      <div class="sample-text-links_items">
+        <TextLink text="GitHub" href="https://github.com" target="_blank" iconName="code-bracket" client:load />
+        <TextLink
+          text="ドキュメント"
+          href="https://example.com/docs"
+          target="_blank"
+          iconName="cube"
+          iconPosition="right"
+          client:load
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .sample-text-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    max-width: var(--width-max, 1200px);
+    padding-block: var(--space-block, 2rem);
+    padding-inline: var(--space-inline, 1rem);
+    margin-inline: auto;
+  }
+
+  .sample-text-links_content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .sample-text-links_group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h3 {
+      margin: 0;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-text-primary, #333333);
+    }
+  }
+
+  .sample-text-links_items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: var(--color-background-secondary, #f8f9fa);
+    border: 1px solid var(--color-border, #e1e5e9);
+    border-radius: var(--radius-medium, 8px);
+  }
+</style>
