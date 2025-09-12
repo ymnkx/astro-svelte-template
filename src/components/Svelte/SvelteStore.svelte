@@ -15,9 +15,9 @@
 <SvelteStack>
   <div class="value">{$count !== null ? $count : ''}</div>
   <div>
-    <Button onclick={count.increment} label="+" />
-    <Button onclick={count.decrement} label="-" />
-    <Button onclick={count.reset} label="Reset" />
+    <Button onclick={count.increment}>+</Button>
+    <Button onclick={count.decrement}>-</Button>
+    <Button onclick={count.reset}>Reset</Button>
   </div>
 </SvelteStack>
 

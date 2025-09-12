@@ -1,0 +1,29 @@
+---
+import Button from '@/components/Button/Button.svelte';
+---
+
+<div class="sample-button" id="button">
+  <div class="sample-button_inner">
+    <h2>Button</h2>
+    <Button as="a" href="#">aタグ</Button>
+    <Button as="button" type="button">buttonタグ</Button>
+    <Button as="span">spanタグ</Button>
+  </div>
+</div>
+
+<style lang="scss">
+  .sample-button {
+    padding-block: var(--space-block);
+    padding-inline: var(--space-inline);
+  }
+
+  .sample-button_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1lh;
+    align-items: center;
+    width: 100%;
+    max-width: var(--width-max);
+    margin-inline: auto;
+  }
+</style>

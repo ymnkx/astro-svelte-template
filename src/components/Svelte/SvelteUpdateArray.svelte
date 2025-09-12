@@ -12,6 +12,6 @@
 </script>
 
 <SvelteStack>
-  <Button {onclick} label="Add a number" />
+  <Button {onclick}>Add a number</Button>
   <p>{numbers.join(' + ')} = {sum}</p>
 </SvelteStack>

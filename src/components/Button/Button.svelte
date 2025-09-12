@@ -1,30 +1,31 @@
 <script lang="ts">
   interface Props {
     primary?: boolean;
-    label?: string;
     size?: 'small' | 'medium' | 'large';
-    as?: 'span' | undefined;
+    as?: 'span' | 'button' | 'a';
     onclick?: () => void;
+    children?: any;
   }
-  let { primary = false, label = 'ラベル', size = 'medium', as = undefined, onclick }: Props = $props();
+  let { primary = false, size = 'medium', as = 'span', onclick, children, ...restProps }: Props = $props();
   let mode = $derived((() => (primary ? '-primary' : '-secondary'))());
-  let classList: string = $derived(['simple-button', `-${size}`, mode].join(' '));
+  let classList: string = $derived(['button-component', `-${size}`, mode].join(' '));
+
+  if (as && as === 'a' && !('href' in restProps)) {
+    throw new Error('href is required when using anchor tag');
+  }
+  if (as && as === 'button' && !('type' in restProps)) {
+    throw new Error('type is required when using button tag');
+  }
 </script>
 
-{#if as === 'span'}
-  <span class={classList}>
-    <span class="simple-button_inner">{label}</span>
-  </span>
-{:else}
-  <button type="button" class={classList} {onclick}>
-    <span class="simple-button_inner">{label}</span>
-  </button>
-{/if}
+<svelte:element this={as} class={classList} {onclick} {...restProps}>
+  <span class="button-component_inner">{@render children?.()}</span>
+</svelte:element>
 
 <style lang="scss">
-  @use '@/styles/_develop/+.scss' as *;
+  @use '@/styles/_develop/+' as *;
 
-  .simple-button {
+  .button-component {
     --this-color-text: var(--color-gray-1000);
     --this-color-bg: var(--color-gray-300);
 
@@ -49,7 +50,7 @@
     }
   }
 
-  .simple-button_inner {
+  .button-component_inner {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,12 +63,12 @@
     background-color: var(--this-color-bg);
     border-radius: var(--radius-midium);
 
-    .simple-button.-small & {
+    .button-component.-small & {
       min-height: auto;
     }
 
-    .simple-button.-full &,
-    .simple-button.-large & {
+    .button-component.-full &,
+    .button-component.-large & {
       padding: 1.25lh 1.5rem;
     }
   }
