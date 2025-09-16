@@ -10,7 +10,7 @@
 </script>
 
 <SvelteStack>
-  <Button {onclick} label={`Clicked: ${count}`} />
+  <Button {onclick}>{`Clicked: ${count}`}</Button>
   <p>
     {#if count % 2 === 0}
       Even

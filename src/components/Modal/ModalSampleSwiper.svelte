@@ -16,13 +16,13 @@
 </script>
 
 <div>
-  <Button onclick={() => openModal(0)} label={`Open Modal(1)`} />
-  <Button onclick={() => openModal(2)} label={`Open Modal(3)`} />
-  <Button onclick={() => openModal(4)} label={`Open Modal(5)`} />
+  <Button onclick={() => openModal(0)}>{`Open Modal(1)`}</Button>
+  <Button onclick={() => openModal(2)}>{`Open Modal(3)`}</Button>
+  <Button onclick={() => openModal(4)}>{`Open Modal(5)`}</Button>
 </div>
 
 <Modal bind:showModal>
-  <Button onclick={() => openModal(3)} label={`Open Modal(4)`} />
+  <Button onclick={() => openModal(3)}>{`Open Modal(4)`}</Button>
   <CarouselForModal
     id="js-modal-coswiper-sample"
     props={{ loop: true, spaceBetween: 10, slidesPerView: 1, pagination: true }}

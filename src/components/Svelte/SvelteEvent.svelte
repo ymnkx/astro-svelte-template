@@ -16,7 +16,7 @@
 </script>
 
 <SvelteStack>
-  <Button {onclick} label={`Clicked: ${count}`} />
+  <Button {onclick}>{`Clicked: ${count}`}</Button>
   <div class="result">
     <p>{count} x 2 = {double}</p>
     <p>If you click more than 10 times...</p>
