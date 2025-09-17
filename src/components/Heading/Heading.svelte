@@ -1,21 +1,54 @@
 <script lang="ts">
   interface Props {
-    label: string;
-    level: 2 | 3 | 4 | 5 | 6;
+    level: 1 | 2 | 3 | 4 | 5 | 6;
+    isSpan: boolean;
+    children: any;
   }
-  let { label = 'ラベル', level = 2 }: Props = $props();
+  let { level = 2, isSpan = false, children }: Props = $props();
+  const tag = isSpan
+    ? 'span'
+    : level === 1
+      ? 'h1'
+      : level === 2
+        ? 'h2'
+        : level === 3
+          ? 'h3'
+          : level === 4
+            ? 'h4'
+            : level === 5
+              ? 'h5'
+              : 'h6';
+  let classList: string = $derived(['heading-component', `-level-${level}`].join(' '));
 </script>
 
-{#if level === 2}
-  <h2 class="h2">{label}</h2>
-{/if}
+<svelte:element this={tag} class={classList}>{@render children?.()}</svelte:element>
 
 <style lang="scss">
-  .h2 {
-    padding-block-end: 1lh; // これを許すかが課題
-    font-family: var(--typo-font-roboto);
-    font-size: var(--typo-size-900);
-    font-weight: var(--typo-weight-normal);
-    text-transform: capitalize;
+  @use '@/styles/_develop/+' as *;
+
+  .heading-component {
+    &.-level-1 {
+      @include heading-level-1;
+    }
+
+    &.-level-2 {
+      @include heading-level-2;
+    }
+
+    &.-level-3 {
+      @include heading-level-3;
+    }
+
+    &.-level-4 {
+      @include heading-level-4;
+    }
+
+    &.-level-5 {
+      @include heading-level-5;
+    }
+
+    &.-level-6 {
+      @include heading-level-6;
+    }
   }
 </style>

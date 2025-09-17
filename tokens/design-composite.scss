@@ -20,6 +20,34 @@
   letter-spacing: var(--typography-letter-spacing-small);
 }
 
+@mixin heading-level-3 {
+  font-size: var(--typography-font-size-300);
+  font-weight: var(--typography-font-weight-semi-bold);
+  line-height: var(--typography-line-height-100);
+  letter-spacing: var(--typography-letter-spacing-small);
+}
+
+@mixin heading-level-4 {
+  font-size: var(--typography-font-size-300);
+  font-weight: var(--typography-font-weight-semi-bold);
+  line-height: var(--typography-line-height-100);
+  letter-spacing: var(--typography-letter-spacing-small);
+}
+
+@mixin heading-level-5 {
+  font-size: var(--typography-font-size-300);
+  font-weight: var(--typography-font-weight-semi-bold);
+  line-height: var(--typography-line-height-100);
+  letter-spacing: var(--typography-letter-spacing-small);
+}
+
+@mixin heading-level-6 {
+  font-size: var(--typography-font-size-300);
+  font-weight: var(--typography-font-weight-semi-bold);
+  line-height: var(--typography-line-height-100);
+  letter-spacing: var(--typography-letter-spacing-small);
+}
+
 @mixin body-text {
   font-size: var(--typography-font-size-100);
   font-weight: var(--typography-font-weight-reqular);

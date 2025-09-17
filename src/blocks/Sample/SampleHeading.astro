@@ -1,0 +1,33 @@
+---
+import Heading from '@/components/Heading/Heading.svelte';
+---
+
+<div class="sample-heading" id="heading">
+  <div class="sample-heading_inner">
+    <h2>Heading</h2>
+    <Heading level="1">Heading1</Heading>
+    <Heading level="2">Heading2</Heading>
+    <Heading level="3">Heading3</Heading>
+    <Heading level="4">Heading4</Heading>
+    <Heading level="5">Heading5</Heading>
+    <Heading level="6">Heading6</Heading>
+    <Heading level="2" isSpan={true}>Heading2-span</Heading>
+  </div>
+</div>
+
+<style lang="scss">
+  .sample-heading {
+    padding-block: var(--space-block);
+    padding-inline: var(--space-inline);
+  }
+
+  .sample-heading_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1lh;
+    align-items: center;
+    width: 100%;
+    max-width: var(--width-max);
+    margin-inline: auto;
+  }
+</style>
