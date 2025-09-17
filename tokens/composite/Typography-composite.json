@@ -17,6 +17,42 @@
       "letterSpacing": "var(--typography-letter-spacing-small)"
     }
   },
+  "heading-level-3": {
+    "type": "composite",
+    "value": {
+      "fontSize": "var(--typography-font-size-300)",
+      "fontWeight": "var(--typography-font-weight-semi-bold)",
+      "lineHeight": "var(--typography-line-height-100)",
+      "letterSpacing": "var(--typography-letter-spacing-small)"
+    }
+  },
+  "heading-level-4": {
+    "type": "composite",
+    "value": {
+      "fontSize": "var(--typography-font-size-300)",
+      "fontWeight": "var(--typography-font-weight-semi-bold)",
+      "lineHeight": "var(--typography-line-height-100)",
+      "letterSpacing": "var(--typography-letter-spacing-small)"
+    }
+  },
+  "heading-level-5": {
+    "type": "composite",
+    "value": {
+      "fontSize": "var(--typography-font-size-300)",
+      "fontWeight": "var(--typography-font-weight-semi-bold)",
+      "lineHeight": "var(--typography-line-height-100)",
+      "letterSpacing": "var(--typography-letter-spacing-small)"
+    }
+  },
+  "heading-level-6": {
+    "type": "composite",
+    "value": {
+      "fontSize": "var(--typography-font-size-300)",
+      "fontWeight": "var(--typography-font-weight-semi-bold)",
+      "lineHeight": "var(--typography-line-height-100)",
+      "letterSpacing": "var(--typography-letter-spacing-small)"
+    }
+  },
   "body-text": {
     "type": "composite",
     "value": {
