@@ -17,7 +17,8 @@
     "check-ngword": "node 'scripts/checkNgWord.js'",
     "style-dictionary": "npm run style-dictionary:base && npm run style-dictionary:composite",
     "style-dictionary:base": "style-dictionary build --config ./sd.config.base.js",
-    "style-dictionary:composite": "style-dictionary build --config ./sd.config.composite.js --verbose"
+    "style-dictionary:composite": "style-dictionary build --config ./sd.config.composite.js --verbose",
+    "extract-diff-files": "node 'scripts/extractDiffFiles.mjs'"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.3",

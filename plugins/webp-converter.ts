@@ -12,11 +12,14 @@ interface WebpConverterOptions {
 export const webpConverter = (options: WebpConverterOptions = {}): AstroIntegration => {
   // デフォルト値を設定
   const { supportedFormats = ['.jpg', '.jpeg', '.png'], quality = 80 } = options;
+  let assetsDir = '_assets'; // デフォルト値
 
   return {
     name: 'webp-converter',
     hooks: {
-      'astro:config:setup': ({ updateConfig }) => {
+      'astro:config:setup': ({ updateConfig, config }) => {
+        // Astroの設定からassetsディレクトリ名を取得
+        assetsDir = config.build?.assets || '_assets';
         // Viteプラグインとして画像変換機能を追加
         updateConfig({
           vite: {
@@ -35,8 +38,8 @@ export const webpConverter = (options: WebpConverterOptions = {}): AstroIntegrat
                     if (asset.type === 'asset') {
                       const ext = path.extname(fileName).toLowerCase();
 
-                      // _assets/image/内の画像のみを対象（src/imageからビルドされた画像）
-                      if (supportedFormats.includes(ext) && fileName.includes('_assets/image/')) {
+                      // {assetsDir}/image/内の画像のみを対象（src/imageからビルドされた画像）
+                      if (supportedFormats.includes(ext) && fileName.includes(`${assetsDir}/image/`)) {
                         const webpFileName = fileName.replace(/\.(jpg|jpeg|png)$/i, '.webp');
 
                         try {
@@ -88,41 +91,62 @@ export const webpConverter = (options: WebpConverterOptions = {}): AstroIntegrat
         });
       },
       'astro:build:done': async ({ dir }) => {
-        console.log('Starting HTML image reference update...');
+        console.log('Starting image reference update in HTML and JS files...');
 
         const outputDir = dir.pathname;
 
         try {
-          // HTMLファイルを再帰的に探す
+          // HTMLファイルとJSファイルを再帰的に探す
           const htmlFiles = await findHtmlFiles(outputDir);
-          console.log(`Found ${htmlFiles.length} HTML files to process`);
+          const jsFiles = await findJsFiles(outputDir);
+          console.log(`Found ${htmlFiles.length} HTML files and ${jsFiles.length} JS files to process`);
 
           let totalReplacements = 0;
 
+          // {assetsDir}/image/内の画像パスを.webpに変換する正規表現
+          const imageRegex = new RegExp(`(\\/${assetsDir}\\/image\\/[^"')\\s]*)\\.(png|jpg|jpeg)(?=["')\\s])`, 'g');
+
           // 各HTMLファイルで画像参照を更新
           for (const htmlFile of htmlFiles) {
-            let htmlContent = await fs.readFile(htmlFile, 'utf-8');
+            const htmlContent = await fs.readFile(htmlFile, 'utf-8');
             let hasChanges = false;
+            let replacementCount = 0;
 
-            // _assets/image/内の画像パスを.webpに変換
-            const imageRegex = /(\/_assets\/image\/[^"']*)\.(png|jpg|jpeg)(?=["'])/g;
-
-            const updatedContent = htmlContent.replace(imageRegex, (match, basePath, ext) => {
+            const updatedContent = htmlContent.replace(imageRegex, (_match, basePath) => {
               hasChanges = true;
+              replacementCount++;
               totalReplacements++;
-              console.log(`  Replacing ${match} → ${basePath}.webp`);
               return `${basePath}.webp`;
             });
 
             if (hasChanges) {
               await fs.writeFile(htmlFile, updatedContent);
-              console.log(`✓ Updated ${path.relative(outputDir, htmlFile)}`);
+              console.log(`✓ Updated ${path.relative(outputDir, htmlFile)} (${replacementCount} replacements)`);
             }
           }
 
-          console.log(`HTML update completed: ${totalReplacements} image references updated`);
+          // 各JSファイルで画像参照を更新
+          for (const jsFile of jsFiles) {
+            const jsContent = await fs.readFile(jsFile, 'utf-8');
+            let hasChanges = false;
+            let replacementCount = 0;
+
+            const updatedContent = jsContent.replace(imageRegex, (_match, basePath) => {
+              hasChanges = true;
+              replacementCount++;
+              totalReplacements++;
+              return `${basePath}.webp`;
+            });
+
+            if (hasChanges) {
+              await fs.writeFile(jsFile, updatedContent);
+              console.log(`✓ Updated ${path.relative(outputDir, jsFile)} (${replacementCount} replacements)`);
+            }
+          }
+
+          console.log(`Image reference update completed: ${totalReplacements} replacements in total`);
         } catch (error) {
-          console.error('Error updating HTML files:', error);
+          console.error('Error updating files:', error);
         }
       },
     },
@@ -139,6 +163,23 @@ async function findHtmlFiles(dir: string): Promise<string[]> {
     if (entry.isDirectory()) {
       files.push(...(await findHtmlFiles(fullPath)));
     } else if (entry.name.endsWith('.html')) {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
+}
+
+// JSファイルを再帰的に探す関数
+async function findJsFiles(dir: string): Promise<string[]> {
+  const files: string[] = [];
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await findJsFiles(fullPath)));
+    } else if (entry.name.endsWith('.js')) {
       files.push(fullPath);
     }
   }

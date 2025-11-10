@@ -7,6 +7,8 @@ import svelte from '@astrojs/svelte';
 import { webpConverter } from './plugins/webp-converter.ts';
 import { svgSprite } from './plugins/svg-sprite.ts';
 
+const assetsDir = '_assets';
+
 // https://astro.build/config
 export default defineConfig({
   site: siteUrl,
@@ -26,7 +28,7 @@ export default defineConfig({
     port: 3000,
   },
   build: {
-    assets: '_assets',
+    assets: assetsDir,
     inlineStylesheets: 'never', // css外部ファイル化のため
   },
   vite: {
@@ -42,13 +44,13 @@ export default defineConfig({
       // js外部ファイル化のため
       rollupOptions: {
         output: {
-          entryFileNames: () => '_assets/js/[name].[hash].js',
+          entryFileNames: () => `${assetsDir}/js/[name].[hash].js`,
           assetFileNames: (assetInfo) => {
             return assetInfo.names[0].endsWith('.css')
-              ? '_assets/css/[name].[hash][extname]'
+              ? `${assetsDir}/css/[name].[hash][extname]`
               : assetInfo.names[0].endsWith('.js')
-                ? '_assets/js/[name].[hash][extname]'
-                : '_assets/image/[name].[hash][extname]';
+                ? `${assetsDir}/js/[name].[hash][extname]`
+                : `${assetsDir}/image/[name].[hash][extname]`;
           },
         },
       },
