@@ -6,7 +6,7 @@ export const registerSwiper = () => {
 };
 
 // CarouselMinimumのロジックを管理する関数
-export const setupCarousel = (swiperId: string, props: any) => {
+export const setupCarousel = (swiperId: string, props: unknown) => {
   let swiperElement: any;
   let currentIndex = 0;
 

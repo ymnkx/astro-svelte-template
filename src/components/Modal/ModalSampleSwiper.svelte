@@ -10,7 +10,7 @@
     console.log('currentIndex:a', currentIndex);
   };
   const onIndexChange = (index: number) => {
-    // console.log('index:a', index);
+    console.log('index:a', index);
     // currentIndex = index;
   };
 </script>

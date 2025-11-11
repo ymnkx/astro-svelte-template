@@ -5,7 +5,12 @@
     props,
     currentIndex = $bindable(0),
     onIndexChange,
-  }: { id: string; props: any; currentIndex: number; onIndexChange: (index: number) => void } = $props();
+  }: {
+    id: string;
+    props: unknown;
+    currentIndex: number;
+    onIndexChange: (index: number) => void;
+  } = $props();
   registerSwiper();
   const carousel = setupCarousel(id, props);
   let activeIndex = $state(0);

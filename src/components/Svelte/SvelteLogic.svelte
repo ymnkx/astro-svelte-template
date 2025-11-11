@@ -4,7 +4,7 @@
 
   let count = 1;
 
-  const onclick = (event) => {
+  const onclick = () => {
     count += 1;
   };
 </script>

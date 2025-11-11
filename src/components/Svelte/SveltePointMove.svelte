@@ -1,7 +1,17 @@
-<script>
-  let m = { clientX: 0, clientY: 0, offsetX: 0, offsetY: 0 };
+<script lang="ts">
+  let m: {
+    clientX: number;
+    clientY: number;
+    offsetX: number;
+    offsetY: number;
+  } = {
+    clientX: 0,
+    clientY: 0,
+    offsetX: 0,
+    offsetY: 0,
+  };
 
-  const onpointermove = (event) => {
+  const onpointermove = (event: PointerEvent) => {
     m.clientX = event.clientX;
     m.clientY = event.clientY;
     m.offsetX = event.offsetX;
