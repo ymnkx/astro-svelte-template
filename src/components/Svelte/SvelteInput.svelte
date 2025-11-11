@@ -11,6 +11,7 @@
 <style>
   .input {
     padding: 0.25em 0.75em;
+    background-color: var(--color-background-base);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-midium);
   }
