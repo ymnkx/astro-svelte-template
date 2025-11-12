@@ -2,7 +2,7 @@
   interface Props {
     level: 1 | 2 | 3 | 4 | 5 | 6;
     isSpan: boolean;
-    children: any;
+    children: unknown;
   }
   let { level = 2, isSpan = false, children }: Props = $props();
   const tag = isSpan
@@ -18,10 +18,14 @@
             : level === 5
               ? 'h5'
               : 'h6';
-  let classList: string = $derived(['heading-component', `-level-${level}`].join(' '));
+  let classList: string = $derived(
+    ['heading-component', `-level-${level}`].join(' ')
+  );
 </script>
 
-<svelte:element this={tag} class={classList}>{@render children?.()}</svelte:element>
+<svelte:element this={tag} class={classList}
+  >{@render children?.()}</svelte:element
+>
 
 <style lang="scss">
   @use '@/styles/_develop/+' as *;

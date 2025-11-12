@@ -4,11 +4,20 @@
     size?: 'small' | 'medium' | 'large';
     as?: 'span' | 'button' | 'a';
     onclick?: () => void;
-    children?: any;
+    children?: unknown;
   }
-  let { primary = false, size = 'medium', as = 'span', onclick, children, ...restProps }: Props = $props();
+  let {
+    primary = false,
+    size = 'medium',
+    as = 'span',
+    onclick,
+    children,
+    ...restProps
+  }: Props = $props();
   let mode = $derived((() => (primary ? '-primary' : '-secondary'))());
-  let classList: string = $derived(['button-component', `-${size}`, mode].join(' '));
+  let classList: string = $derived(
+    ['button-component', `-${size}`, mode].join(' ')
+  );
 
   if (as && as === 'a' && !('href' in restProps)) {
     throw new Error('href is required when using anchor tag');

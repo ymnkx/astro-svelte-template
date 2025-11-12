@@ -1,17 +1,19 @@
-<script>
+<script lang="ts">
   import { slide } from 'svelte/transition';
   let isSlide = false;
   let isOpen = false;
-  let timer = null;
+  let timer: number | null = null;
   const duration = 300;
-  const clickHandler = (ev) => {
+  const clickHandler = (ev: MouseEvent) => {
     ev.preventDefault();
-    timer && clearTimeout(timer);
+    if (timer !== null) {
+      clearTimeout(timer);
+    }
     isSlide = !isSlide;
     if (isSlide) {
       isOpen = true;
     } else {
-      timer = setTimeout(() => {
+      timer = window.setTimeout(() => {
         isOpen = false;
       }, duration);
     }
@@ -19,14 +21,23 @@
 </script>
 
 <details class="accordion-menu" open={isOpen}>
-  <summary class="accordion-menu_summary" data-role="summary" aria-label="summary" onclick={clickHandler}>
+  <summary
+    class="accordion-menu_summary"
+    data-role="summary"
+    aria-label="summary"
+    onclick={clickHandler}
+  >
     <span class="accordion-menu_label">
       <slot name="label">Label</slot>
     </span>
     <span class="accordion-menu_icon"></span>
   </summary>
   {#if isSlide}
-    <div class="accordion-menu_contents" data-role="contents" transition:slide={{ delay: 0, duration: duration }}>
+    <div
+      class="accordion-menu_contents"
+      data-role="contents"
+      transition:slide={{ delay: 0, duration: duration }}
+    >
       <slot name="contents">Contents</slot>
     </div>
   {/if}

@@ -1,14 +1,15 @@
 ---
-import ModalSample1 from '@/components/Modal/ModalSample1.svelte';
-import ModalSampleSwiper from '@/components/Modal/ModalSampleSwiper.svelte';
+import ModalSimple from '@/components/Modal/ModalSimple.svelte';
+import ModalCarousel from '@/components/Modal/ModalCarousel.svelte';
 ---
 
 <div class="sample-Modal" id="modal">
   <div class="sample-Modal_inner">
     <h2>Modal</h2>
-
-    <ModalSample1 client:load />
-    <ModalSampleSwiper client:load />
+    <h3>Simple Modal</h3>
+    <ModalSimple client:load />
+    <h3>Modal + Carousel</h3>
+    <ModalCarousel client:load />
   </div>
 </div>
 

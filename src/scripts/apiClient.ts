@@ -1,6 +1,6 @@
 type Props = {
   url: string;
-  callback: (data: [] | Array<any>) => void;
+  callback: (data: [] | Array<unknown>) => void;
 };
 
 export const apiClient = () => {

@@ -26,7 +26,8 @@
 <div class="tab-menu_panel">
   {#if selectedTab === tabList[0].id}
     <div id={tabList[0].id}>
-      タブUIの汎用化は難しい。<br />Svelt5ではslotが非推奨になるらしいし、一旦保留にする。<br
+      タブUIの汎用化は難しい。<br
+      />Svelt5ではslotが非推奨になるらしいし、一旦保留にする。<br
       />仕組み自体は簡単だし、汎用化はいらないかも。
     </div>
   {/if}

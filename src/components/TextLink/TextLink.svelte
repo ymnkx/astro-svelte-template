@@ -11,10 +11,20 @@
     iconSize?: string;
   }
 
-  let { text, href, iconName, iconPosition = 'left', target, rel, iconSize = '1.25rem' }: Props = $props();
+  let {
+    text,
+    href,
+    iconName,
+    iconPosition = 'left',
+    target,
+    rel,
+    iconSize = '1.25rem',
+  }: Props = $props();
 
   // 外部リンクの場合、自動でrel属性を設定
-  let finalRel = $derived(rel || (target === '_blank' ? 'noopener noreferrer' : undefined));
+  let finalRel = $derived(
+    rel || (target === '_blank' ? 'noopener noreferrer' : undefined)
+  );
   let hasIcon = $derived(!!iconName);
   let iconLeft = $derived(hasIcon && iconPosition === 'left');
   let iconRight = $derived(hasIcon && iconPosition === 'right');
