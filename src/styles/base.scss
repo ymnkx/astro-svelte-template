@@ -1,7 +1,7 @@
 // base
 @use "_base/reset";
 @use "_base/base";
-@use "./tokens/design-tokens" as tokens;
+@use "../../tokens/design-tokens" as tokens;
 
 // project settings
 @use "_design/+.scss" as design;
