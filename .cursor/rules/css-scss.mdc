@@ -11,7 +11,7 @@ alwaysApply: true
 - **全てのscssファイルの1行目**に必ず以下を記述:
 
 ```scss
-@use '@/styles/_develop/+' as *;
+@use '@/styles/_develop/+.scss' as *;
 ```
 
 ## BEM命名規則（厳格版）
@@ -262,7 +262,7 @@ transition: transform var(--this-transition);
 ### ファイル構成
 
 ```scss
-@use '@/styles/_develop/+' as *;
+@use '@/styles/_develop/+.scss' as *;
 
 // コンポーネント変数定義
 .component-name {

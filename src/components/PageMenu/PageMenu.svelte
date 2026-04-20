@@ -60,7 +60,7 @@
 </ul>
 
 <style lang="scss">
-  @use '@/styles/_develop/+' as *;
+  @use '@/styles/_develop/+.scss' as *;
 
   .page-menu {
     text-align: right;
