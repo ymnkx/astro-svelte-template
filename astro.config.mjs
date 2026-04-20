@@ -33,12 +33,13 @@ export default defineConfig({
   },
   vite: {
     plugins: [svgSprite()],
-    resolve: {
-      alias: {
-        '@/image': fileURLToPath(new URL('./src/image', import.meta.url)),
-        '@/icons': fileURLToPath(new URL('./src/icons', import.meta.url)),
-      },
-    },
+    // resolve: {
+    //   alias: {
+    //     '@': fileURLToPath(new URL('./src', import.meta.url)),
+    //     '@/image': fileURLToPath(new URL('./src/image', import.meta.url)),
+    //     '@/icons': fileURLToPath(new URL('./src/icons', import.meta.url)),
+    //   },
+    // },
     build: {
       assetsInlineLimit: 0,
       // js外部ファイル化のため

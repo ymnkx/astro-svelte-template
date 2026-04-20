@@ -42,7 +42,7 @@
 </div>
 
 <style lang="scss">
-  @use '@/styles/_develop/+' as *;
+  @use '@/styles/_develop/+.scss' as *;
 
   .carousel-pagination {
     display: flex;

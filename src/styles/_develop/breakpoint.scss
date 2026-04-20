@@ -11,7 +11,7 @@ $breakpoints: (
 @function get-breakpoint($name) {
   $min: map.get($breakpoints, $name);
 
-  @return if($min != 0, $min, null);
+  @return if(sass($min != 0): $min; else: null);
 }
 
 @mixin min-screen($name) {

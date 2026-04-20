@@ -46,7 +46,7 @@ const date = '20240906';
 </footer>
 
 <style lang="scss">
-  @use '@/styles/_develop/+' as *;
+  @use '@/styles/_develop/+.scss' as *;
 
   .common-footer {
     padding: 0 var(--space-inline);
@@ -60,13 +60,13 @@ const date = '20240906';
   .common-footer_inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1lh 1em;
+    gap: 1lh 1em;
     min-height: 6lh;
     padding: 1.5lh 0;
 
     @include min-screen(md) {
       grid-template-columns: 10em 10em 1fr;
-      grid-gap: 0.5lh 1em;
+      gap: 0.5lh 1em;
       border-top: 1px solid var(--color-border);
     }
   }

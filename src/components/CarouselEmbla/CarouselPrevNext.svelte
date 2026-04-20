@@ -32,26 +32,16 @@
 </script>
 
 <div class="carousel-prevNext">
-  <button
-    type="button"
-    disabled={!canScrollPrev}
-    class="carousel-prevNext_button"
-    onclick={goPrev}
-  >
+  <button type="button" disabled={!canScrollPrev} class="carousel-prevNext_button" onclick={goPrev}>
     {prevLabel}
   </button>
-  <button
-    type="button"
-    disabled={!canScrollNext}
-    class="carousel-prevNext_button"
-    onclick={goNext}
-  >
+  <button type="button" disabled={!canScrollNext} class="carousel-prevNext_button" onclick={goNext}>
     {nextLabel}
   </button>
 </div>
 
 <style lang="scss">
-  @use '@/styles/_develop/+' as *;
+  @use '@/styles/_develop/+.scss' as *;
 
   .carousel-prevNext {
     display: flex;

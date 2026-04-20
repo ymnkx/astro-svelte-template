@@ -27,7 +27,7 @@
 </div>
 
 <style lang="scss">
-  @use '@/styles/_develop/+' as *;
+  @use '@/styles/_develop/+.scss' as *;
 
   .embla {
     --slide-spacing: 1rem;
